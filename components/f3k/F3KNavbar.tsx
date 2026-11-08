@@ -160,7 +160,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
           : "bg-transparent py-2.5 sm:py-3.5"
       } ${className}`}
     >
-      <div className="pointer-events-auto mx-auto grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-6 sm:px-12 md:px-16 text-[9px] leading-[1.3] sm:text-[11px]">
+      <div className="pointer-events-auto mx-auto flex items-center justify-between md:grid md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] gap-2 px-5 sm:px-12 md:px-16 text-[9px] leading-[1.3] sm:text-[11px]">
         {/* Left: Brand Logo (Adhering to F3K Brand Guidelines: compact mark with 24px min height & correct contrast) */}
         <Link 
           href="/" 
