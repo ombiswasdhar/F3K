@@ -4,14 +4,7 @@ import React, { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ThreeDPhotoCarousel from "@/components/ui/3d-carousel";
-
-interface CarouselLayout {
-  x: number;
-  y: number;
-  angle: number;
-  pitch: number;
-  scale: number;
-}
+import CarouselEditUI, { type CarouselLayout } from "./CarouselEditUI";
 
 type CarouselAnchorStyle = CSSProperties & { "--carousel-x": string; "--carousel-y": string };
 
@@ -107,6 +100,20 @@ export default function F3KHeroSection() {
       setTimeout(() => setEmailSubmitted(false), 4000);
       setHeroEmail("");
     }
+  };
+
+  const handleLayoutChange = (newLayout: CarouselLayout) => {
+    setCarouselLayout(newLayout);
+    try {
+      window.localStorage.setItem(carouselLayoutStorageKey, JSON.stringify(newLayout));
+    } catch {}
+  };
+
+  const handleLayoutReset = () => {
+    setCarouselLayout(defaultCarouselLayout);
+    try {
+      window.localStorage.setItem(carouselLayoutStorageKey, JSON.stringify(defaultCarouselLayout));
+    } catch {}
   };
 
   return (
@@ -357,6 +364,13 @@ export default function F3KHeroSection() {
           ))}
         </div>
       </div>
+      {/* 5. 3D ROTATING THINGIE EDIT UI */}
+      <CarouselEditUI
+        layout={carouselLayout}
+        onChange={handleLayoutChange}
+        onReset={handleLayoutReset}
+        defaultLayout={defaultCarouselLayout}
+      />
     </section>
   );
 }
