@@ -240,7 +240,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       {/* Consistent Hero Navigation Bar */}
       <F3KNavbar />
 
-      <main className="flex-1 w-full pt-[50px] sm:pt-[58px] lg:pt-[62px] pb-20">
+      <main className="flex-1 w-full pt-[50px] sm:pt-[58px] lg:pt-[62px] pb-28 sm:pb-20">
         <ProductDetailsClient product={product} relatedProducts={relatedProducts} />
       </main>
 

@@ -35,12 +35,12 @@ export default function F3KAtelierStore() {
   };
 
   return (
-    <section id="contact" className="w-full bg-white text-neutral-900 py-16 sm:py-24 border-b border-neutral-300 font-sans scroll-mt-20">
-      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
-        <div className="bg-[#fafaf8] rounded-3xl p-8 sm:p-12 lg:p-16 border border-neutral-300 shadow-xs">
+    <section id="contact" className="w-full bg-white text-neutral-900 py-12 sm:py-24 border-b border-neutral-300 font-sans scroll-mt-20">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-8 lg:px-12">
+        <div className="bg-[#fafaf8] rounded-2xl sm:rounded-3xl p-5 sm:p-12 lg:p-16 border border-neutral-300 shadow-xs">
           
           {/* Main 2-Column Contact Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
             
             {/* Left Column: Support Info, Direct Channels & Quick Actions */}
             <div className="lg:col-span-5 space-y-6">
@@ -48,7 +48,7 @@ export default function F3KAtelierStore() {
                 <span className="inline-block text-[11px] font-semibold uppercase tracking-widest text-neutral-500 bg-neutral-200/60 px-3 py-1 rounded-full mb-3">
                   Customer Support &amp; Concierge
                 </span>
-                <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tight text-neutral-900">
+                <h2 className="font-sans font-bold text-2xl sm:text-5xl uppercase tracking-tight text-neutral-900">
                   Contact Us
                 </h2>
                 <p className="mt-4 text-sm text-neutral-600 leading-relaxed font-sans">

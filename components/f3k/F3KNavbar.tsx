@@ -30,7 +30,7 @@ interface F3KNavbarProps {
 }
 
 export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbarProps) {
-  const { items, setIsOpen } = useCartStore();
+  const { items, isOpen: isCartOpen, setIsOpen } = useCartStore();
   const { items: wishlistItems, removeItem: removeWishlistItem } = useWishlistStore();
   const [shopMenuOpen, setShopMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -98,26 +98,59 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
   const isLightSurface = scrolled ? !isDark : pathname === "/about";
   const logoSrc = isLightSurface ? "/logo/f3k-mark-black.png" : "/logo/f3k-mark-white.png";
 
-  // Active mobile tab logic (inspired by reference capsule nav)
+  // Active mobile tab logic (faithful to Dribbble reference capsule nav)
   const getActiveTab = () => {
+    if (isCartOpen) return "bag";
     if (isSearchOpen) return "search";
     if (isWishlistOpen) return "wishlist";
-    if (pathname === "/") return "home";
     if (pathname.startsWith("/products") || pathname === "/men" || pathname === "/women") return "shop";
-    if (pathname === "/about") return "about";
+    if (pathname === "/") return "home";
     return "";
   };
 
   const activeMobileTab = getActiveTab();
 
+  // Solid icons matching the reference aesthetic
+  const SolidHomeIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <path d="M12 2.5L2 11h3v9.5a.5.5 0 0 0 .5.5H9.5a.5.5 0 0 0 .5-.5V14a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v6.5a.5.5 0 0 0 .5.5H18.5a.5.5 0 0 0 .5-.5V11h3L12 2.5z" />
+    </svg>
+  );
+
+  const SolidShopIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <rect x="3" y="3" width="7.5" height="7.5" rx="1.75" />
+      <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.75" />
+      <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.75" />
+      <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.75" />
+    </svg>
+  );
+
+  const SolidSearchIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <path fillRule="evenodd" clipRule="evenodd" d="M10.5 3.5a7 7 0 1 0 4.38 12.46l4.33 4.33a1 1 0 0 0 1.41-1.41l-4.33-4.33A7 7 0 0 0 10.5 3.5zm-5 7a5 5 0 1 1 10 0 5 5 0 0 1-10 0z" />
+    </svg>
+  );
+
+  const SolidHeartIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  );
+
+  const SolidBagIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <path fillRule="evenodd" clipRule="evenodd" d="M8 6a4 4 0 0 1 8 0h3a1 1 0 0 1 1 1.05l-1.12 12.35A3 3 0 0 1 15.89 22H8.11a3 3 0 0 1-2.99-2.6L4 7.05A1 1 0 0 1 5 6h3zm2 0a2 2 0 1 1 4 0h-4z" />
+    </svg>
+  );
+
   const mobileNavItems = [
-    { id: "home", label: "Home", icon: Home, href: "/" },
-    { id: "shop", label: "Shop", icon: Package, href: "/products" },
-    { id: "about", label: "About", icon: Sparkles, href: "/about" },
+    { id: "home", label: "Home", icon: SolidHomeIcon, href: "/" },
+    { id: "shop", label: "Shop", icon: SolidShopIcon, href: "/products" },
     { 
       id: "search", 
       label: "Search", 
-      icon: Search, 
+      icon: SolidSearchIcon, 
       onClick: () => {
         setIsSearchOpen((prev) => !prev);
         setIsWishlistOpen(false);
@@ -127,7 +160,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
     { 
       id: "wishlist", 
       label: "Saved", 
-      icon: Heart, 
+      icon: SolidHeartIcon, 
       badge: mounted && wishlistItems.length > 0 ? wishlistItems.length : undefined,
       onClick: () => {
         setIsWishlistOpen((prev) => !prev);
@@ -138,7 +171,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
     { 
       id: "bag", 
       label: "Bag", 
-      icon: ShoppingBag, 
+      icon: SolidBagIcon, 
       badge: mounted && cartCount > 0 ? cartCount : undefined,
       onClick: () => {
         setIsOpen(true);
@@ -836,29 +869,29 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
       {/* ─── MOBILE BOTTOM FLOATING NAVIGATION BAR (INSPIRED BY REFERENCE) ─── */}
       <nav 
         aria-label="Mobile Navigation" 
-        className="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)]"
+        className="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden pointer-events-none px-4 pb-[env(safe-area-inset-bottom,0px)]"
       >
-        <div className="pointer-events-auto flex items-center gap-1 rounded-full bg-[#242424]/95 backdrop-blur-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.65)] border border-white/15">
+        <div className="pointer-events-auto w-full max-w-[350px] h-[58px] rounded-full bg-[#1c1c1c]/95 backdrop-blur-2xl border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.7)] p-1.5 flex items-center justify-between font-sans select-none">
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeMobileTab === item.id;
 
             const content = (
-              <div className="relative flex items-center justify-center">
+              <div className="h-full flex items-center justify-center">
                 {isActive ? (
                   <motion.div
                     layoutId="mobile-nav-active-pill"
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-black font-semibold shadow-md select-none"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    className="h-full px-4 rounded-full bg-white text-black font-bold flex items-center gap-2 shadow-md shrink-0 select-none"
+                    transition={{ type: "spring", stiffness: 450, damping: 32 }}
                   >
-                    <Icon size={14} className="text-black shrink-0" />
-                    <span className="text-[11px] font-sans tracking-tight">{item.label}</span>
+                    <Icon className="size-[17px] text-black shrink-0" />
+                    <span className="text-[12px] font-bold font-sans tracking-tight">{item.label}</span>
                   </motion.div>
                 ) : (
-                  <div className="relative p-2.5 text-white/70 hover:text-white transition-colors flex items-center justify-center select-none">
-                    <Icon size={16} className={item.id === "wishlist" && item.badge ? "fill-white/80" : ""} />
+                  <div className="relative p-2.5 text-white/75 hover:text-white transition-colors flex items-center justify-center">
+                    <Icon className="size-5 transition-transform active:scale-95" />
                     {typeof item.badge === "number" && item.badge > 0 && (
-                      <span className="absolute top-1 right-1 flex size-3.5 items-center justify-center rounded-full bg-white text-black text-[8px] font-bold font-sans ring-2 ring-[#242424]">
+                      <span className="absolute top-1 right-1 flex size-3.5 items-center justify-center rounded-full bg-white text-black text-[8px] font-bold font-sans ring-2 ring-[#1c1c1c]">
                         {item.badge}
                       </span>
                     )}
@@ -877,7 +910,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                     setIsWishlistOpen(false);
                     setProfileMenuOpen(false);
                   }}
-                  className="cursor-pointer"
+                  className={`h-full flex items-center justify-center cursor-pointer ${isActive ? "shrink-0" : "flex-1"}`}
                   aria-label={item.label}
                 >
                   {content}
@@ -890,7 +923,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                 key={item.id}
                 type="button"
                 onClick={item.onClick}
-                className="cursor-pointer outline-none"
+                className={`h-full flex items-center justify-center cursor-pointer outline-none ${isActive ? "shrink-0" : "flex-1"}`}
                 aria-label={item.label}
               >
                 {content}

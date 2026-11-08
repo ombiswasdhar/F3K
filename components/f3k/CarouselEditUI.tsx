@@ -24,7 +24,7 @@ export default function CarouselEditUI({
   onReset,
   defaultLayout,
 }: CarouselEditUIProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const updateField = (field: keyof CarouselLayout, value: number) => {
@@ -68,7 +68,7 @@ export default function CarouselEditUI({
   return (
     <aside
       aria-label="3D Carousel Layout Editor"
-      className="fixed bottom-24 right-4 md:bottom-5 md:right-5 z-[9999] font-sans select-none"
+      className="hidden md:block fixed bottom-5 right-5 z-[9999] font-sans select-none"
     >
       {/* Minimized Pill */}
       {!isOpen && (

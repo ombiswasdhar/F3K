@@ -39,12 +39,12 @@ const collections: BentoCategory[] = [
 
 export default function F3KCollectionsBento() {
   return (
-    <section id="collections" className="w-full bg-[#fafafa] text-neutral-900 py-16 sm:py-24 border-b border-neutral-300">
-      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
+    <section id="collections" className="w-full bg-[#fafafa] text-neutral-900 py-12 sm:py-24 border-b border-neutral-300">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-6 border-b border-neutral-300">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10 pb-5 sm:pb-6 border-b border-neutral-300">
           <div>
-            <h2 className="font-sans font-bold text-3xl sm:text-5xl uppercase tracking-tight text-neutral-900">
+            <h2 className="font-sans font-bold text-2xl sm:text-5xl uppercase tracking-tight text-neutral-900">
               Featured Silhouettes
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-neutral-500 font-sans">
@@ -60,12 +60,12 @@ export default function F3KCollectionsBento() {
         </div>
 
         {/* 3-Column Collection Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {collections.map((item) => (
             <Link
               key={item.title}
               href={item.href}
-              className="group relative overflow-hidden rounded-none bg-white border border-neutral-300 p-6 sm:p-8 flex flex-col justify-between min-h-[380px] lg:min-h-[440px] transition-all duration-300 hover:shadow-lg hover:border-neutral-900"
+              className="group relative overflow-hidden rounded-none bg-white border border-neutral-300 p-5 sm:p-8 flex flex-col justify-between min-h-[340px] sm:min-h-[380px] lg:min-h-[440px] transition-all duration-300 hover:shadow-lg hover:border-neutral-900"
             >
               {/* Product Image */}
               <div className="absolute inset-0 z-0 overflow-hidden bg-neutral-100/70">

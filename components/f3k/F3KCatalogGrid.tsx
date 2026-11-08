@@ -392,7 +392,7 @@ export default function F3KCatalogGrid() {
                   <div className="flex items-baseline justify-between gap-1.5 pt-0.5">
                     <Link
                       href={`/products/${product.slug}`}
-                      className="text-left text-[11px] sm:text-xs font-archivo font-bold uppercase text-neutral-950 hover:text-neutral-600 transition truncate tracking-tight"
+                      className="text-left text-[11px] sm:text-xs font-archivo font-bold uppercase text-neutral-950 hover:text-neutral-600 transition line-clamp-2 min-h-[2.4em] tracking-tight leading-snug"
                     >
                       {product.name}
                     </Link>
@@ -436,6 +436,32 @@ export default function F3KCatalogGrid() {
               </div>
             );
           })}
+
+          {/* Slot 6 Teaser Card (Prevents awkward odd-item dead grey tile on 2-col mobile) */}
+          {filteredProducts.length === 5 && (
+            <div className="bg-neutral-50 p-4 sm:p-5 flex flex-col justify-between border-t border-neutral-200 font-sans group">
+              <div className="space-y-2">
+                <div className="inline-block px-2 py-0.5 bg-black text-white text-[9px] font-archivo font-bold uppercase tracking-wider">
+                  Next Silhouette
+                </div>
+                <h4 className="text-xs sm:text-sm font-archivo font-bold uppercase tracking-tight text-neutral-900 leading-snug">
+                  Drop 002 Archive In Development
+                </h4>
+                <p className="text-[10px] text-neutral-500 line-clamp-3">
+                  Heavyweight structured tailoring. 500 GSM loopback fleece & engineered modular seams.
+                </p>
+              </div>
+              <div className="pt-4">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs font-archivo font-bold uppercase tracking-wider text-neutral-900 hover:text-black group-hover:underline underline-offset-4"
+                >
+                  <span>Get Notified</span>
+                  <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

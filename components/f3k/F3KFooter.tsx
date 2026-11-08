@@ -13,7 +13,7 @@ export default function F3KFooter() {
   };
 
   return (
-    <footer className="w-full bg-[#0a0a0a] text-white pt-14 pb-12 font-sans border-t border-neutral-800">
+    <footer className="w-full bg-[#0a0a0a] text-white pt-12 sm:pt-14 pb-28 sm:pb-14 font-sans border-t border-neutral-800">
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
         {/* Top Assurance Strip */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-10 mb-10 border-b border-neutral-800 text-xs text-neutral-400">
