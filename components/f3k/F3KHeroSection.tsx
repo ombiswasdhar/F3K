@@ -6,7 +6,11 @@ import { ArrowRight } from "lucide-react";
 import ThreeDPhotoCarousel from "@/components/ui/3d-carousel";
 import CarouselEditUI, { type CarouselLayout } from "./CarouselEditUI";
 
-type CarouselAnchorStyle = CSSProperties & { "--carousel-x": string; "--carousel-y": string };
+type CarouselAnchorStyle = CSSProperties & { 
+  "--carousel-x": string; 
+  "--carousel-y": string;
+  "--carousel-scale": number;
+};
 
 const defaultCarouselLayout: CarouselLayout = { x: 0, y: -61, angle: -20, pitch: -15, scale: 153 };
 const carouselLayoutStorageKey = "f3k-carousel-layout-v2";
@@ -327,10 +331,17 @@ export default function F3KHeroSection() {
             </div>
 
             <div
-              className="f3k-carousel-layout-anchor relative min-w-0 self-center md:absolute md:z-0 md:w-[90%] md:max-w-[1000px] md:-translate-x-1/2 md:-translate-y-1/2"
-              style={{ "--carousel-x": `${carouselLayout.x}px`, "--carousel-y": `${carouselLayout.y}px` } as CarouselAnchorStyle}
+              className="f3k-carousel-layout-anchor relative min-w-0 self-center overflow-visible md:absolute md:z-0 md:w-[90%] md:max-w-[1000px] md:-translate-x-1/2 md:-translate-y-1/2"
+              style={{ 
+                "--carousel-x": `${carouselLayout.x}px`, 
+                "--carousel-y": `${carouselLayout.y}px`,
+                "--carousel-scale": carouselLayout.scale,
+              } as CarouselAnchorStyle}
             >
-              <div className="relative" style={{ rotate: `${carouselLayout.angle}deg`, scale: String(carouselLayout.scale / 100), transformOrigin: "center" }}>
+              <div 
+                className="f3k-carousel-rotator relative overflow-visible" 
+                style={{ rotate: `${carouselLayout.angle}deg` }}
+              >
                 <ThreeDPhotoCarousel pitch={carouselLayout.pitch} />
               </div>
             </div>
