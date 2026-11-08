@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { 
   Home,
   ShoppingBag, 
@@ -14,6 +15,7 @@ import {
   Heart, 
   User, 
   Package, 
+  Sparkles,
   RotateCcw, 
   Truck, 
   HelpCircle 
@@ -96,9 +98,61 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
   const isLightSurface = scrolled ? !isDark : pathname === "/about";
   const logoSrc = isLightSurface ? "/logo/f3k-mark-black.png" : "/logo/f3k-mark-white.png";
 
+  // Active mobile tab logic (inspired by reference capsule nav)
+  const getActiveTab = () => {
+    if (isSearchOpen) return "search";
+    if (isWishlistOpen) return "wishlist";
+    if (pathname === "/") return "home";
+    if (pathname.startsWith("/products") || pathname === "/men" || pathname === "/women") return "shop";
+    if (pathname === "/about") return "about";
+    return "";
+  };
+
+  const activeMobileTab = getActiveTab();
+
+  const mobileNavItems = [
+    { id: "home", label: "Home", icon: Home, href: "/" },
+    { id: "shop", label: "Shop", icon: Package, href: "/products" },
+    { id: "about", label: "About", icon: Sparkles, href: "/about" },
+    { 
+      id: "search", 
+      label: "Search", 
+      icon: Search, 
+      onClick: () => {
+        setIsSearchOpen((prev) => !prev);
+        setIsWishlistOpen(false);
+        setProfileMenuOpen(false);
+      }
+    },
+    { 
+      id: "wishlist", 
+      label: "Saved", 
+      icon: Heart, 
+      badge: mounted && wishlistItems.length > 0 ? wishlistItems.length : undefined,
+      onClick: () => {
+        setIsWishlistOpen((prev) => !prev);
+        setIsSearchOpen(false);
+        setProfileMenuOpen(false);
+      }
+    },
+    { 
+      id: "bag", 
+      label: "Bag", 
+      icon: ShoppingBag, 
+      badge: mounted && cartCount > 0 ? cartCount : undefined,
+      onClick: () => {
+        setIsOpen(true);
+        setIsSearchOpen(false);
+        setIsWishlistOpen(false);
+        setProfileMenuOpen(false);
+      }
+    },
+  ];
+
   return (
-    <header 
-      className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 pointer-events-none ${
+    <>
+      <header 
+        className={`fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 pointer-events-none ${
         scrolled 
           ? isDark
             ? "bg-black/85 backdrop-blur-md border-b border-white/10 shadow-lg py-2"
@@ -123,10 +177,10 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
           />
         </Link>
 
-        {/* Center: Scaled-Down (-30%) Floating Rounded Pill Navigation */}
+        {/* Center: Scaled-Down (-30%) Floating Rounded Pill Navigation (Desktop Only) */}
         <nav 
           aria-label="Main navigation" 
-          className="relative flex items-center justify-self-center gap-2 sm:gap-4 whitespace-nowrap rounded-full bg-[#242424]/95 backdrop-blur-md px-3.5 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-[12px] text-white shadow-lg border border-white/10 font-sans"
+          className="hidden md:flex relative items-center justify-self-center gap-2 sm:gap-4 whitespace-nowrap rounded-full bg-[#242424]/95 backdrop-blur-md px-3.5 py-1.5 sm:px-5 sm:py-2 text-[11px] sm:text-[12px] text-white shadow-lg border border-white/10 font-sans"
         >
           {/* 1. Home Icon */}
           <Link 
@@ -615,5 +669,236 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
         </div>
       </div>
     </header>
+
+      {/* ─── MOBILE MODAL BACKDROP (WHEN SEARCH OR WISHLIST SHEET IS OPEN) ─── */}
+      {(isSearchOpen || isWishlistOpen) && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs md:hidden"
+          onClick={() => {
+            setIsSearchOpen(false);
+            setIsWishlistOpen(false);
+          }}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* ─── MOBILE LIVE SEARCH SHEET (FLOATS DIRECTLY ABOVE BOTTOM NAV) ─── */}
+      {isSearchOpen && (
+        <div className="fixed inset-x-4 bottom-22 z-50 md:hidden bg-white text-neutral-900 rounded-2xl border border-neutral-200 p-3.5 shadow-[0_16px_50px_rgba(0,0,0,0.4)] font-sans max-w-sm mx-auto animate-in slide-in-from-bottom-3 duration-200 pointer-events-auto">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-100">
+            <span className="text-[10px] tracking-wider uppercase text-neutral-500 font-semibold">Search Silhouettes</span>
+            <button 
+              type="button" 
+              onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
+              className="p-1 text-neutral-400 hover:text-black cursor-pointer"
+              aria-label="Close search"
+            >
+              <X size={14} />
+            </button>
+          </div>
+          <form onSubmit={handleSearchSubmit} className="relative flex items-center">
+            <Search size={14} className="absolute left-3 text-neutral-400 pointer-events-none" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search tees, silhouettes..."
+              autoFocus
+              className="w-full bg-neutral-100 text-neutral-900 placeholder-neutral-400 pl-9 pr-8 py-2 rounded-xl text-xs outline-none border border-transparent focus:border-black/20 focus:bg-white transition"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 text-neutral-400 hover:text-black cursor-pointer"
+              >
+                <X size={12} />
+              </button>
+            )}
+          </form>
+
+          {/* Instant Live Search Results */}
+          {liveSearchResults.length > 0 && (
+            <div className="mt-2 divide-y divide-neutral-100 max-h-48 overflow-y-auto">
+              {liveSearchResults.map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/products/${item.slug}`}
+                  onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }}
+                  className="flex items-center gap-2.5 py-1.5 hover:bg-neutral-50 transition group"
+                >
+                  <div className="relative size-8 bg-neutral-100 rounded border border-neutral-200 shrink-0">
+                    <Image src={item.image} alt={item.name} fill className="object-contain p-0.5" sizes="32px" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[11px] font-medium truncate">{item.name}</div>
+                    <div className="text-[9px] text-neutral-500 font-sans">₹{item.price.toLocaleString("en-IN")}</div>
+                  </div>
+                  <ArrowRight size={11} className="text-neutral-400 group-hover:text-black transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ─── MOBILE WISHLIST SHEET (FLOATS DIRECTLY ABOVE BOTTOM NAV) ─── */}
+      {isWishlistOpen && (
+        <div className="fixed inset-x-4 bottom-22 z-50 md:hidden bg-white text-neutral-900 rounded-2xl border border-neutral-200 p-3.5 shadow-[0_16px_50px_rgba(0,0,0,0.4)] font-sans max-w-sm mx-auto animate-in slide-in-from-bottom-3 duration-200 pointer-events-auto">
+          <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-100">
+            <span className="text-[10px] tracking-wider uppercase text-neutral-500 font-semibold">
+              Wishlist ({mounted ? wishlistItems.length : 0})
+            </span>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/dashboard?tab=wishlist"
+                onClick={() => setIsWishlistOpen(false)}
+                className="text-[10px] text-neutral-600 hover:text-black underline underline-offset-2 font-medium"
+              >
+                Locker
+              </Link>
+              <button 
+                type="button" 
+                onClick={() => setIsWishlistOpen(false)}
+                className="p-1 text-neutral-400 hover:text-black cursor-pointer"
+                aria-label="Close wishlist"
+              >
+                <X size={14} />
+              </button>
+            </div>
+          </div>
+
+          {(!mounted || wishlistItems.length === 0) ? (
+            <div className="py-4 text-center space-y-1.5">
+              <Heart size={18} className="mx-auto text-neutral-400 stroke-[1.5]" />
+              <p className="text-[11px] text-neutral-800 font-medium">Your wishlist is empty</p>
+              <p className="text-[9px] text-neutral-500 max-w-[200px] mx-auto">
+                Tap the heart on any product to save it.
+              </p>
+              <div className="pt-1">
+                <Link
+                  href="/products"
+                  onClick={() => setIsWishlistOpen(false)}
+                  className="inline-block px-3 py-1 bg-black text-white text-[10px] font-semibold rounded-md hover:bg-neutral-800 transition"
+                >
+                  Explore Drop 001
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <div className="divide-y divide-neutral-100 max-h-48 overflow-y-auto space-y-1">
+              {wishlistItems.map((item) => (
+                <div key={item.product_id} className="flex items-center gap-2.5 py-1.5">
+                  <Link
+                    href={`/products/${item.slug}`}
+                    onClick={() => setIsWishlistOpen(false)}
+                    className="relative size-8 bg-neutral-100 rounded border border-neutral-200 shrink-0"
+                  >
+                    <Image src={item.thumbnail} alt={item.name} fill className="object-contain p-0.5" sizes="32px" />
+                  </Link>
+                  <div className="flex-1 min-w-0">
+                    <Link
+                      href={`/products/${item.slug}`}
+                      onClick={() => setIsWishlistOpen(false)}
+                      className="text-[11px] text-neutral-900 font-medium truncate block"
+                    >
+                      {item.name}
+                    </Link>
+                    <div className="text-[9px] text-neutral-500">₹{item.price.toLocaleString("en-IN")}</div>
+                  </div>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsOpen(true);
+                        setIsWishlistOpen(false);
+                      }}
+                      className="px-2 py-0.5 bg-black text-white text-[9px] font-semibold rounded hover:bg-neutral-800 transition cursor-pointer"
+                    >
+                      View
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeWishlistItem(item.product_id)}
+                      className="p-1 text-neutral-400 hover:text-red-500 transition cursor-pointer"
+                      aria-label="Remove item"
+                    >
+                      <X size={11} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ─── MOBILE BOTTOM FLOATING NAVIGATION BAR (INSPIRED BY REFERENCE) ─── */}
+      <nav 
+        aria-label="Mobile Navigation" 
+        className="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)]"
+      >
+        <div className="pointer-events-auto flex items-center gap-1 rounded-full bg-[#242424]/95 backdrop-blur-xl p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.65)] border border-white/15">
+          {mobileNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeMobileTab === item.id;
+
+            const content = (
+              <div className="relative flex items-center justify-center">
+                {isActive ? (
+                  <motion.div
+                    layoutId="mobile-nav-active-pill"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-black font-semibold shadow-md select-none"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  >
+                    <Icon size={14} className="text-black shrink-0" />
+                    <span className="text-[11px] font-sans tracking-tight">{item.label}</span>
+                  </motion.div>
+                ) : (
+                  <div className="relative p-2.5 text-white/70 hover:text-white transition-colors flex items-center justify-center select-none">
+                    <Icon size={16} className={item.id === "wishlist" && item.badge ? "fill-white/80" : ""} />
+                    {typeof item.badge === "number" && item.badge > 0 && (
+                      <span className="absolute top-1 right-1 flex size-3.5 items-center justify-center rounded-full bg-white text-black text-[8px] font-bold font-sans ring-2 ring-[#242424]">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+
+            if (item.href) {
+              return (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  onClick={() => {
+                    setIsSearchOpen(false);
+                    setIsWishlistOpen(false);
+                    setProfileMenuOpen(false);
+                  }}
+                  className="cursor-pointer"
+                  aria-label={item.label}
+                >
+                  {content}
+                </Link>
+              );
+            }
+
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={item.onClick}
+                className="cursor-pointer outline-none"
+                aria-label={item.label}
+              >
+                {content}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+    </>
   );
 }
