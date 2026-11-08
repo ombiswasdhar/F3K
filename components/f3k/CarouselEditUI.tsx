@@ -58,11 +58,11 @@ export default function CarouselEditUI({
     step: number;
     unit: string;
   }> = [
-      { key: "x", label: "X OFFSET", min: -400, max: 400, step: 1, unit: "px" },
-      { key: "y", label: "Y OFFSET", min: -400, max: 400, step: 1, unit: "px" },
+      { key: "x", label: "X OFFSET", min: -600, max: 600, step: 1, unit: "px" },
+      { key: "y", label: "Y OFFSET", min: -1000, max: 1000, step: 1, unit: "px" },
       { key: "angle", label: "ROTATION", min: -180, max: 180, step: 1, unit: "°" },
       { key: "pitch", label: "3D PITCH", min: -60, max: 60, step: 1, unit: "°" },
-      { key: "scale", label: "SCALE", min: 40, max: 260, step: 1, unit: "%" },
+      { key: "scale", label: "SCALE", min: 20, max: 600, step: 1, unit: "%" },
     ];
 
   return (
@@ -182,7 +182,7 @@ export default function CarouselEditUI({
           <div className="px-4 py-2 border-t border-white/10 bg-white/[0.02] flex items-center gap-1.5 text-[9px] uppercase tracking-wider overflow-x-auto">
             <span className="text-white/40 text-[8px] mr-1">PRESETS:</span>
             <button
-              onClick={() => onChange({ x: 0, y: -61, angle: -20, pitch: -15, scale: 153 })}
+              onClick={() => onChange({ x: -3, y: -500, angle: -20, pitch: -15, scale: 400 })}
               className="px-2 py-1 bg-white/10 hover:bg-white/20 rounded text-white/80 hover:text-white transition cursor-pointer"
             >
               Default

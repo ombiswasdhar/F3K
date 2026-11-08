@@ -12,8 +12,8 @@ type CarouselAnchorStyle = CSSProperties & {
   "--carousel-scale": number;
 };
 
-const defaultCarouselLayout: CarouselLayout = { x: 0, y: -61, angle: -20, pitch: -15, scale: 153 };
-const carouselLayoutStorageKey = "f3k-carousel-layout-v2";
+const defaultCarouselLayout: CarouselLayout = { x: -3, y: -500, angle: -20, pitch: -15, scale: 400 };
+const carouselLayoutStorageKey = "f3k-carousel-layout-v3";
 const gridHorizontalPaths = [1, 5, 10].map((row) => `M0 ${row * 72} H3840`).join(" ");
 const gridVerticalPaths = [2, 8, 14].map((column) => `M${column * 72} 0 V2160`).join(" ");
 
@@ -48,11 +48,11 @@ export default function F3KHeroSection() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          // A. Slide sidebars out as t-shirt lineup begins
+          // A. Slide sidebars out as t-shirt lineup begins (covers the filter bar first before disappearing)
           const catalogEl = document.getElementById("catalog") || document.getElementById("products");
           if (catalogEl) {
             const rect = catalogEl.getBoundingClientRect();
-            setIsPastHero(rect.top <= 140);
+            setIsPastHero(rect.top <= 60);
           } else {
             const heroEl = document.getElementById("hero");
             if (heroEl) {
@@ -126,7 +126,7 @@ export default function F3KHeroSection() {
       {/* ─── REACTIVE FIXED SIDEBARS: PURE CONTRAST REACTIVE (LIGHT ON DARK, DARK ON LIGHT) ─── */}
       <div 
         aria-hidden="true" 
-        className="pointer-events-none fixed inset-y-0 inset-x-0 z-30 flex items-center justify-between"
+        className="pointer-events-none fixed inset-y-0 inset-x-0 z-40 flex items-center justify-between"
       >
         {/* Left Screen Edge: Reactive Dual-Layer Split (Pure White on Dark, Pure Black on Light) */}
         <div 
@@ -319,19 +319,11 @@ export default function F3KHeroSection() {
             </Link>
           </div>
 
-          {/* Main Stage Grid: Left column placed in 2nd grid, away from rotating carousel */}
-          <div className="relative grid flex-1 grid-cols-1 items-center gap-2 pb-6 sm:pb-16 pt-2 md:grid-cols-[0.31fr_0.69fr] md:gap-0">
-            <div className="relative z-10 max-w-[260px] lg:max-w-[240px] pt-1 pb-2 sm:py-0 select-none">
-              <p className="mt-2 sm:mt-5 text-[10px] sm:text-[11px] lg:text-[12px] leading-[1.4] sm:leading-[1.5] lg:leading-[1.6] tracking-wider lg:tracking-widest font-archivo uppercase text-neutral-900 font-semibold">
-                Streetwear<br />Tees<br />Hoodies<br />Accessories
-              </p>
-              <p className="mt-2 sm:mt-8 text-[9.5px] sm:text-[11px] lg:text-xs leading-[1.4] sm:leading-[1.45] lg:leading-[1.55] text-neutral-600 max-w-[220px] sm:max-w-[205px] lg:max-w-[215px] font-sans">
-                Built for presence. Heavyweight essentials and considered silhouettes for the everyday.
-              </p>
-            </div>
-
+          {/* Main Stage Grid: Left column placed in 2nd grid on desktop, carousel on top and text below on mobile */}
+          <div className="relative flex flex-col md:grid flex-1 md:grid-cols-[0.31fr_0.69fr] items-center gap-3 pb-6 sm:pb-16 pt-2 md:gap-0">
+            {/* 3D Rotating Photo Carousel (order-1 on mobile, order-2 on desktop) */}
             <div
-              className="f3k-carousel-layout-anchor relative min-w-0 self-center overflow-visible md:absolute md:z-0 md:w-[90%] md:max-w-[1000px] md:-translate-x-1/2 md:-translate-y-1/2"
+              className="f3k-carousel-layout-anchor order-1 md:order-2 relative min-w-0 self-center overflow-visible md:absolute md:z-0 md:w-[90%] md:max-w-[1000px] md:-translate-x-1/2 md:-translate-y-1/2"
               style={{ 
                 "--carousel-x": `${carouselLayout.x}px`, 
                 "--carousel-y": `${carouselLayout.y}px`,
@@ -345,19 +337,30 @@ export default function F3KHeroSection() {
                 <ThreeDPhotoCarousel pitch={carouselLayout.pitch} />
               </div>
             </div>
+
+            {/* Stage Text (order-2 on mobile placed below the carousel, order-1 on desktop) */}
+            <div className="relative z-10 w-full max-w-none md:max-w-[240px] pt-1 pb-2 sm:py-0 select-none order-2 md:order-1">
+              <p className="mt-2 sm:mt-5 text-[11px] sm:text-[11px] lg:text-[12px] leading-[1.4] sm:leading-[1.5] lg:leading-[1.6] tracking-wider lg:tracking-widest font-archivo uppercase text-neutral-900 font-semibold">
+                <span className="sm:hidden">Streetwear &bull; Tees &bull; Hoodies &bull; Accessories</span>
+                <span className="hidden sm:inline">Streetwear<br />Tees<br />Hoodies<br />Accessories</span>
+              </p>
+              <p className="mt-1.5 sm:mt-8 text-[10px] sm:text-[11px] lg:text-xs leading-relaxed text-neutral-600 w-full max-w-none md:max-w-[215px] font-sans">
+                Built for presence. Heavyweight essentials and considered silhouettes for the everyday.
+              </p>
+            </div>
           </div>
 
         </div>
 
         {/* Footer: Starts in 2nd grid on left, ends in 2nd grid on right */}
-        <footer className="relative z-10 w-full px-5 sm:px-8 md:px-[72px] pb-28 sm:pb-7 lg:pb-8 pt-4 sm:pt-8 flex items-end justify-between gap-6 text-[9.5px] sm:text-[11px] lg:text-[12px] font-sans leading-[1.35] lg:leading-[1.45]">
+        <footer className="relative z-10 w-full px-5 sm:px-8 md:px-[72px] pb-24 sm:pb-24 lg:pb-24 pt-4 sm:pt-8 flex items-end justify-between gap-6 text-[9.5px] sm:text-[11px] lg:text-[12px] font-sans leading-[1.35] lg:leading-[1.45]">
           <p>F3K Atelier<br />Clothes built for the room.</p>
           <p className="text-right">© FUTURE3000<br />All rights reserved.</p>
         </footer>
       </div>
 
-      {/* 4. RUNNING MARQUEE TICKER TAPE (Full width black strip) */}
-      <div className="relative z-20 w-full bg-[#000000] border-y border-white/[0.12] py-2.5 overflow-hidden">
+      {/* 4. RUNNING MARQUEE TICKER TAPE (Full width black strip, pulled up 1 grid block: 72px) */}
+      <div className="relative z-20 w-full bg-[#000000] border-y border-white/[0.12] py-2.5 overflow-hidden -mt-[72px]">
         <div className="flex whitespace-nowrap animate-marquee font-sans text-[10px] sm:text-[11px] uppercase tracking-[0.26em] font-normal text-white/55">
           {[...Array(6)].map((_, i) => (
             <span key={i} className="flex items-center gap-6 mx-3">

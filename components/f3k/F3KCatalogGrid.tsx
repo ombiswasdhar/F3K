@@ -204,7 +204,7 @@ export default function F3KCatalogGrid() {
   return (
     <section id="catalog" className="w-full bg-white text-[#111111] border-b border-neutral-300">
       {/* 1. Header Bar — Minimal Clean Title */}
-      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12 pt-16 sm:pt-20 pb-8 text-center">
+      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12 pt-10 sm:pt-20 pb-8 text-center">
         <h2 className="font-archivo font-extrabold text-3xl sm:text-5xl uppercase tracking-[-0.02em] text-[#0a0a0a]">
           {urlSearch ? `Search: "${urlSearch}"` : "T-Shirts Lineup"}
         </h2>
