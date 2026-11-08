@@ -1,0 +1,201 @@
+const fs = require("fs");
+
+const tshirts = [
+  {
+    id: 101,
+    name: "Statement Club T-Shirt",
+    slug: "statement-tee",
+    indexNumber: "01",
+    price: 7680,
+    compare_price: 9600,
+    thumbnail: "/products/pinterest/f3k_tee_2_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_2_nobg.png",
+      "/products/pinterest/f3k_tee_2.jpg",
+      "/products/pinterest/f3k_tee_3_nobg.png",
+      "/products/pinterest/f3k_tee_4_nobg.png"
+    ],
+    short_description: "280 GSM custom heavyweight combed cotton jersey with boxy drape.",
+    description: "Constructed from 280 GSM custom heavyweight combed cotton jersey. Cut with a relaxed boxy fit, dropped shoulders, and a thick ribbed collar engineered to hold its structure wash after wash."
+  },
+  {
+    id: 102,
+    name: "Cyber Matrix Graphic Tee",
+    slug: "cyber-matrix-tee",
+    indexNumber: "02",
+    price: 8200,
+    compare_price: 9800,
+    thumbnail: "/products/pinterest/f3k_tee_3_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_3_nobg.png",
+      "/products/pinterest/f3k_tee_3.png",
+      "/products/pinterest/f3k_tee_5_nobg.png"
+    ],
+    short_description: "300 GSM double-jersey oversized fit with archival screenprint.",
+    description: "Architectural 300 GSM double-jersey knit engineered for a clean torso drape. Finished with a high-density tonal screenprint and reinforced double-needle seams."
+  },
+  {
+    id: 103,
+    name: "Archival Monogram Tee",
+    slug: "archival-monogram-tee",
+    indexNumber: "03",
+    price: 7400,
+    compare_price: 9200,
+    thumbnail: "/products/pinterest/f3k_tee_4_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_4_nobg.png",
+      "/products/pinterest/f3k_tee_4.jpg",
+      "/products/pinterest/f3k_tee_6_nobg.png"
+    ],
+    short_description: "260 GSM compact jersey with subtle weathered wash.",
+    description: "Vintage enzyme-washed 260 GSM cotton with weathered undertones. Cut with an oversized shoulder drop and ribbed neck tape for everyday longevity."
+  },
+  {
+    id: 104,
+    name: "Futurist Phantom Boxy Tee",
+    slug: "futurist-phantom-tee",
+    indexNumber: "04",
+    price: 7900,
+    compare_price: 9500,
+    thumbnail: "/products/pinterest/f3k_tee_5_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_5_nobg.png",
+      "/products/pinterest/f3k_tee_5.jpg",
+      "/products/pinterest/f3k_tee_7_nobg.png"
+    ],
+    short_description: "Heavyweight drop-shoulder tee with high-definition tonal graphic.",
+    description: "Engineered from pre-shrunk 290 GSM cotton with an organic silicone wash for exceptional hand feel. Features a blind-stitched hem and minimal neck branding."
+  },
+  {
+    id: 105,
+    name: "Tokyo Atelier Washed Tee",
+    slug: "tokyo-atelier-tee",
+    indexNumber: "05",
+    price: 7200,
+    compare_price: 8800,
+    thumbnail: "/products/pinterest/f3k_tee_6_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_6_nobg.png",
+      "/products/pinterest/f3k_tee_6.jpg",
+      "/products/pinterest/f3k_tee_8_nobg.png"
+    ],
+    short_description: "Relaxed classic fit with garment-dyed tonal depth.",
+    description: "Deep reactive garment-dyed finish ensuring rich color saturation. Built with a relaxed silhouette and reinforced collar designed never to stretch or bacon."
+  },
+  {
+    id: 106,
+    name: "Retro Racing Heavyweight Tee",
+    slug: "retro-racing-tee",
+    indexNumber: "06",
+    price: 8400,
+    compare_price: 10200,
+    thumbnail: "/products/pinterest/f3k_tee_7_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_7_nobg.png",
+      "/products/pinterest/f3k_tee_7.jpg",
+      "/products/pinterest/f3k_tee_9_nobg.png"
+    ],
+    short_description: "Vintage motorsport inspired graphic on 300 GSM loop jersey.",
+    description: "Dense 300 GSM loop jersey featuring cracked-ink archival racing artwork. Dropped shoulders, wide sleeves, and heavyweight ribbed binding."
+  },
+  {
+    id: 107,
+    name: "Raw Edge Minimalist Tee",
+    slug: "raw-edge-tee",
+    indexNumber: "07",
+    price: 6800,
+    compare_price: 8400,
+    thumbnail: "/products/pinterest/f3k_tee_8_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_8_nobg.png",
+      "/products/pinterest/f3k_tee_8.jpg",
+      "/products/pinterest/f3k_tee_10_nobg.png"
+    ],
+    short_description: "Pure form and clean lines in 270 GSM organic cotton.",
+    description: "Minimalist streetwear essential crafted from certified organic cotton. Features subtle tonal stitch detailing and a structured ribbed neckline."
+  },
+  {
+    id: 108,
+    name: "Subversive Distortion Tee",
+    slug: "subversive-distortion-tee",
+    indexNumber: "08",
+    price: 7800,
+    compare_price: 9600,
+    thumbnail: "/products/pinterest/f3k_tee_9_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_9_nobg.png",
+      "/products/pinterest/f3k_tee_9.jpg",
+      "/products/pinterest/f3k_tee_11_nobg.png"
+    ],
+    short_description: "Oversized silhouette with high-density distorted typography.",
+    description: "Cut extra roomy with wider arm openings and a squared-off bottom hem. Heavyweight 280 GSM cotton treated for a soft broken-in feel."
+  },
+  {
+    id: 109,
+    name: "Acid Washed Heavy Tee",
+    slug: "acid-washed-tee",
+    indexNumber: "09",
+    price: 7600,
+    compare_price: 9400,
+    thumbnail: "/products/pinterest/f3k_tee_10_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_10_nobg.png",
+      "/products/pinterest/f3k_tee_10.jpg",
+      "/products/pinterest/f3k_tee_12_nobg.png"
+    ],
+    short_description: "Unique mineral acid wash with custom vintage patina.",
+    description: "Every piece undergoes an individual mineral wash treatment resulting in subtle one-of-a-kind fading patterns. Heavy 290 GSM cotton."
+  },
+  {
+    id: 110,
+    name: "Echo Horizon Graphic Tee",
+    slug: "echo-horizon-tee",
+    indexNumber: "10",
+    price: 8000,
+    compare_price: 9800,
+    thumbnail: "/products/pinterest/f3k_tee_11_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_11_nobg.png",
+      "/products/pinterest/f3k_tee_11.jpg",
+      "/products/pinterest/f3k_tee_13_nobg.png"
+    ],
+    short_description: "Back print oversized graphic tee in 280 GSM combed jersey.",
+    description: "Featuring a large format back artwork and minimal chest logo. Cut with a boxy, dropped-shoulder silhouette and clean ribbed collar."
+  },
+  {
+    id: 111,
+    name: "Monolith Heavyweight Tee",
+    slug: "monolith-heavy-tee",
+    indexNumber: "11",
+    price: 7500,
+    compare_price: 9200,
+    thumbnail: "/products/pinterest/f3k_tee_12_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_12_nobg.png",
+      "/products/pinterest/f3k_tee_12.webp",
+      "/products/pinterest/f3k_tee_14_nobg.png"
+    ],
+    short_description: "Substantial 310 GSM ultra-heavyweight cotton for architectural structure.",
+    description: "Our heaviest tee of Drop 001. Crafted from 310 GSM combed jersey that holds its boxy architectural drape without clinging."
+  },
+  {
+    id: 112,
+    name: "Chrome Orbit Graphic Tee",
+    slug: "chrome-orbit-tee",
+    indexNumber: "12",
+    price: 8200,
+    compare_price: 10000,
+    thumbnail: "/products/pinterest/f3k_tee_13_nobg.png",
+    images: [
+      "/products/pinterest/f3k_tee_13_nobg.png",
+      "/products/pinterest/f3k_tee_13.jpg",
+      "/products/pinterest/f3k_tee_15_nobg.png"
+    ],
+    short_description: "Metallic foil and matte puff print combination on black jersey.",
+    description: "Engineered with multi-layer screenprinting combining chrome metallic accents with matte black rubberized print. Relaxed boxy streetwear fit."
+  }
+];
+
+fs.writeFileSync("generated_tshirts_catalog.json", JSON.stringify(tshirts, null, 2));
+console.log("Generated catalog with", tshirts.length, "t-shirts from Pinterest!");
+

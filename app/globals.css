@@ -1,0 +1,452 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background, #0a0a0a);
+  --color-foreground: var(--foreground, #ffffff);
+
+  /* F3K Core Streetwear & Minimal Foundation */
+  --color-f3k-void: #0a0a0a;
+  --color-f3k-carbon: #141414;
+  --color-f3k-graphite: #1f1f1f;
+  --color-f3k-slate: #3a3a3a;
+  --color-f3k-steel: #6b6b6b;
+  --color-f3k-fog: #a8a8a8;
+  --color-f3k-mist: #d9d9d9;
+  --color-f3k-offwhite: #f2f2f0;
+  --color-f3k-white: #ffffff;
+
+  /* F3K Italian Old Money Sub-Label Palette */
+  --color-f3k-ivory: #f4ede0;
+  --color-f3k-parchment: #e8dec9;
+  --color-f3k-espresso: #3b2a20;
+  --color-f3k-olive: #4b5230;
+  --color-f3k-bordeaux: #5c2230;
+  --color-f3k-navy: #243044;
+  --color-f3k-brass: #a8864f;
+
+  /* F3K Typography Stacks (Strictly Google Fonts: Archivo, DM Sans, Cormorant Garamond) */
+  --font-archivo: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --font-mono: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Authentic Google Font Aliases (Zero AI-generated or synthetic custom font dependencies) */
+.font-humane {
+  font-family: var(--font-archivo);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.font-noka-semibold {
+  font-family: var(--font-archivo);
+  font-weight: 700;
+}
+
+.product-editorial-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f8f7f4;
+  color: #171717;
+}
+
+.product-editorial-panel::before {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 6px;
+  background: #111;
+  content: "";
+}
+
+.product-editorial-panel [class~="text-white"] {
+  color: #171717 !important;
+}
+
+.product-editorial-panel [class*="text-white/"] {
+  color: rgb(23 23 23 / 58%) !important;
+}
+
+.product-editorial-panel [class*="border-white"] {
+  border-color: rgb(23 23 23 / 14%) !important;
+}
+
+.product-editorial-panel [class*="bg-white/"] {
+  background-color: rgb(23 23 23 / 4%) !important;
+}
+
+.product-editorial-panel [class~="bg-white"] {
+  background-color: #171717 !important;
+}
+
+.product-editorial-panel [class~="bg-white"][class~="text-black"] {
+  color: #fff !important;
+}
+
+.product-editorial-panel [class*="bg-black"] [class*="text-white/"],
+.product-editorial-panel [class*="bg-black"][class*="text-white"] {
+  color: rgb(255 255 255 / 75%) !important;
+}
+
+.f3k-carousel-layout-anchor {
+  left: var(--carousel-x, 0px);
+  top: var(--carousel-y, 0px);
+}
+
+.f3k-grid-backdrop {
+  opacity: 0.55;
+  animation: f3k-grid-breathe 8s ease-in-out infinite;
+}
+
+.f3k-grid-glow {
+  fill: none;
+  stroke: #69aeca;
+  stroke-width: 1.15;
+  stroke-dasharray: 9 391;
+  filter: drop-shadow(0 0 3px rgb(105 174 202 / 45%));
+}
+
+.f3k-grid-glow-horizontal {
+  animation: f3k-grid-travel 12s linear infinite;
+}
+
+.f3k-grid-glow-vertical {
+  animation: f3k-grid-travel 16s linear infinite reverse;
+  animation-delay: -5s;
+}
+
+@keyframes f3k-grid-breathe {
+
+  0%,
+  100% {
+    opacity: 0.38;
+  }
+
+  50% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes f3k-grid-travel {
+  from {
+    stroke-dashoffset: 400;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .f3k-grid-backdrop,
+  .f3k-grid-glow-horizontal,
+  .f3k-grid-glow-vertical {
+    animation: none;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .f3k-carousel-layout-anchor {
+    left: calc(50% + var(--carousel-x, 0px));
+    top: calc(50% + var(--carousel-y, 0px));
+  }
+}
+
+:root {
+  --reality-font: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-main: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Default F3K Minimal Architectural Light */
+  --bg-color: #f2f2f0;
+  --text-primary: #0a0a0a;
+  --text-muted: #6b6b6b;
+  --border-color: #3a3a3a;
+  --border-light: #d9d9d9;
+  --grid-line: #e2e2df;
+  --card-bg: #ffffff;
+  --crosshair-color: #0a0a0a;
+  --accent-color: #0a0a0a;
+  --pill-bg: #0a0a0a;
+  --pill-text: #ffffff;
+  --tag-bg: #0a0a0a;
+  --tag-text: #ffffff;
+  --canvas-line: #141414;
+  --canvas-glow: rgba(10, 10, 10, 0.08);
+  --grid-margin: clamp(16px, 2.5vw, 36px);
+  --grid-gutter: clamp(12px, 2vw, 24px);
+}
+
+[data-reality="horizon-dark"] {
+  --bg-color: #08090c;
+  --text-primary: #f3f4f6;
+  --text-muted: #94a3b8;
+  --border-color: rgba(0, 240, 255, 0.45);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(0, 240, 255, 0.07);
+  --card-bg: rgba(13, 17, 23, 0.85);
+  --crosshair-color: #00f0ff;
+  --accent-color: #00f0ff;
+  --pill-bg: rgba(13, 17, 23, 0.95);
+  --pill-text: #00f0ff;
+  --tag-bg: #00f0ff;
+  --tag-text: #08090c;
+  --canvas-line: #00f0ff;
+  --canvas-glow: rgba(0, 240, 255, 0.35);
+}
+
+[data-reality="blueprint-cad"] {
+  --bg-color: #08172e;
+  --text-primary: #f0f9ff;
+  --text-muted: #7dd3fc;
+  --border-color: rgba(56, 189, 248, 0.55);
+  --border-light: rgba(56, 189, 248, 0.18);
+  --grid-line: rgba(56, 189, 248, 0.1);
+  --card-bg: rgba(8, 27, 54, 0.9);
+  --crosshair-color: #38bdf8;
+  --accent-color: #38bdf8;
+  --pill-bg: #08284e;
+  --pill-text: #38bdf8;
+  --tag-bg: #38bdf8;
+  --tag-text: #08172e;
+  --canvas-line: #38bdf8;
+  --canvas-glow: rgba(56, 189, 248, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.font-reality {
+  font-family: var(--reality-font);
+}
+
+.font-main {
+  font-family: var(--font-main);
+}
+
+.font-archivo {
+  font-family: var(--font-heading);
+}
+
+.font-dm {
+  font-family: var(--font-main);
+}
+
+.font-editorial {
+  font-family: var(--reality-font);
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono);
+}
+
+/* F3K Brutalist Architecture: 0px radius rule across core UI */
+.f3k-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading), "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  border-radius: 0px;
+  padding: 14px 28px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.f3k-btn-primary:hover {
+  background-color: #1f1f1f;
+}
+
+.f3k-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading), "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  border-radius: 0px;
+  border: 1px solid currentColor;
+  padding: 13px 27px;
+  background-color: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Selection style */
+::selection {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+/* Technical Blueprint Clip Paths & Borders */
+.technical-border {
+  border: 1px solid var(--border-color);
+}
+
+.technical-border-light {
+  border: 1px solid var(--border-light);
+}
+
+.technical-polygon {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+
+.technical-chamfer {
+  clip-path: polygon(0 10px,
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Crosshair Node Mark */
+.crosshair-node {
+  position: relative;
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crosshair-node::before {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background-color: var(--accent-color);
+}
+
+/* Technical pulse */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 0px;
+}
+
+/* Grid background guide overlay */
+.sutera-grid-bg {
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* Hide browser scrollbar when in hero sections, show when catalog begins */
+html.hero-active-scrollbar-hidden::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html.hero-active-scrollbar-hidden {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Utility to hide scrollbars for clean horizontal swipe containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Utility to hide scrollbars for clean horizontal swipe containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
