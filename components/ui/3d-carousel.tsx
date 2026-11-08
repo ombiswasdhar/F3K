@@ -71,8 +71,8 @@ function ThreeDPhotoCarousel({ pitch = 0 }: { pitch?: number }) {
 
   return (
     <motion.div layout className="relative overflow-visible">
-      <div className="relative h-[500px] w-full overflow-visible">
-        <div aria-hidden="true" className="pointer-events-none absolute bottom-24 left-1/2 z-0 h-8 w-[68%] -translate-x-1/2 rounded-[50%] bg-black/20 blur-2xl" />
+      <div className="relative h-[320px] sm:h-[500px] w-full overflow-visible">
+        <div aria-hidden="true" className="pointer-events-none absolute bottom-12 sm:bottom-24 left-1/2 z-0 h-8 w-[68%] -translate-x-1/2 rounded-[50%] bg-black/20 blur-2xl" />
         <div className="relative z-10 h-full overflow-visible">
           <Carousel cards={cards} pitch={pitch} />
         </div>
