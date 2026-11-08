@@ -48,29 +48,29 @@ export default function CartDrawer() {
           />
 
           {/* Drawer container */}
-          <div className="absolute inset-y-0 right-0 flex max-w-full pl-6 md:pl-10">
+          <div className="absolute inset-y-0 right-0 flex max-w-full pl-0 sm:pl-6 md:pl-10">
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="w-screen max-w-md border-l bg-[var(--card-bg)] text-[var(--text-primary)] shadow-2xl flex flex-col h-full"
+              className="w-screen max-w-full sm:max-w-md border-l bg-[var(--card-bg)] text-[var(--text-primary)] shadow-2xl flex flex-col h-full"
               style={{ borderColor: "var(--border-color)" }}
             >
               {/* Header */}
-              <div className="flex items-center justify-between border-b p-5" style={{ borderColor: "var(--border-light)" }}>
+              <div className="flex items-center justify-between border-b p-4 sm:p-5" style={{ borderColor: "var(--border-light)" }}>
                 <div className="flex items-center gap-2.5">
-                  <ShoppingBag size={16} className="text-neutral-800" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider">
+                  <ShoppingBag size={16} className="text-neutral-900" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-900">
                     Shopping Bag ({items.reduce((acc, curr) => acc + curr.quantity, 0)})
                   </h3>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="border px-2.5 py-1 text-xs uppercase hover:bg-black hover:text-white transition-colors rounded"
-                  style={{ borderColor: "var(--border-color)" }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs uppercase font-medium hover:bg-black hover:text-white transition-all rounded-full border border-neutral-300 cursor-pointer"
                 >
-                  Close [✕]
+                  <span>Close</span>
+                  <X size={13} />
                 </button>
               </div>
 
@@ -163,7 +163,7 @@ export default function CartDrawer() {
 
               {/* Footer / Summary */}
               {items.length > 0 && (
-                <div className="border-t p-5 space-y-3 bg-white" style={{ borderColor: "var(--border-light)" }}>
+                <div className="border-t p-4 sm:p-5 pb-8 sm:pb-5 space-y-3 bg-white" style={{ borderColor: "var(--border-light)" }}>
                   <div className="space-y-1.5 text-xs">
                     <div className="flex justify-between text-neutral-600">
                       <span>Subtotal</span>

@@ -55,47 +55,66 @@ export default function CartToast() {
 
   return (
     <AnimatePresence>
+      {/* Mobile Backdrop Overlay */}
       <motion.div
-        initial={{ opacity: 0, y: -20, scale: 0.95, x: 20 }}
-        animate={{ opacity: 1, y: 0, scale: 1, x: 0 }}
-        exit={{ opacity: 0, y: -10, scale: 0.95, x: 10 }}
-        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        key="cart-toast-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={() => setLastAddedItem(null)}
+        className="fixed inset-0 z-[79] bg-black/60 backdrop-blur-xs md:hidden"
+      />
+
+      <motion.div
+        key="cart-toast-content"
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 30, scale: 0.98 }}
+        transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
         onMouseEnter={handlePauseTimer}
         onMouseLeave={handleResumeTimer}
-        className="fixed top-28 right-4 z-[60] w-full max-w-sm rounded-[24px] border border-white/[0.08] bg-[#0c0c0c]/95 p-5 text-[#ede9e3] shadow-[0_12px_50px_rgba(0,0,0,0.8)] backdrop-blur-md font-sans"
+        className="fixed inset-x-0 bottom-0 z-[80] w-full rounded-t-[28px] border-t border-white/[0.12] bg-[#0c0c0c]/98 p-5 pb-8 text-[#ede9e3] shadow-[0_-12px_50px_rgba(0,0,0,0.85)] backdrop-blur-xl font-sans md:inset-x-auto md:bottom-auto md:top-24 md:right-6 md:w-full md:max-w-sm md:rounded-[24px] md:border md:border-white/[0.08] md:p-5 md:pb-5 md:shadow-[0_12px_50px_rgba(0,0,0,0.8)]"
       >
+        {/* Mobile Swipe / Drag Handle Indicator */}
+        <div className="mx-auto w-10 h-1 rounded-full bg-white/20 mb-3.5 md:hidden" />
+
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-3.5">
+        <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-3.5">
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            <span className="text-[10px] font-bold tracking-wider text-white uppercase">Added to Bag</span>
+            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[10px] font-bold tracking-widest text-white uppercase">Added to Bag</span>
           </div>
           <button
             onClick={() => setLastAddedItem(null)}
-            className="text-white/45 hover:text-white transition cursor-pointer"
+            className="p-1 -mr-1 text-white/50 hover:text-white transition cursor-pointer"
+            aria-label="Close popup"
           >
-            <X size={13} />
+            <X size={15} />
           </button>
         </div>
 
         {/* Item Content Preview */}
-        <div className="flex gap-4">
-          <div className="relative size-16 rounded-xl overflow-hidden border border-white/[0.06] bg-[#141414] shrink-0">
+        <div className="flex gap-3.5 items-center">
+          <div className="relative size-16 sm:size-18 rounded-xl overflow-hidden border border-white/[0.08] bg-[#141414] shrink-0">
             <Image
               src={lastAddedItem.thumbnail || "/products/f3k/ARCH-01/front.png"}
               alt={lastAddedItem.name}
               fill
-              sizes="64px"
-              className="object-cover"
+              sizes="72px"
+              className="object-contain p-1"
             />
           </div>
-          <div className="flex-1 min-w-0 flex flex-col justify-center">
-            <h4 className="text-[11px] font-black text-white uppercase tracking-wider truncate">
+          <div className="flex-1 min-w-0">
+            <h4 className="text-[12px] font-bold text-white uppercase tracking-wider truncate">
               {lastAddedItem.name}
             </h4>
-            <p className="text-[9px] tracking-widest text-white/35 uppercase mt-0.5">
-              Size: {lastAddedItem.size} | Color: {lastAddedItem.color} | Qty: {lastAddedItem.quantity}
-            </p>
+            <div className="flex items-center gap-2 text-[10px] tracking-wider text-white/50 uppercase mt-0.5">
+              <span>Size: {lastAddedItem.size}</span>
+              <span>•</span>
+              <span>{lastAddedItem.color}</span>
+              <span>•</span>
+              <span>Qty: {lastAddedItem.quantity}</span>
+            </div>
             <p className="text-xs font-bold text-white mt-1">
               ₹{(lastAddedItem.price * lastAddedItem.quantity).toLocaleString("en-IN")}
             </p>
@@ -103,38 +122,36 @@ export default function CartToast() {
         </div>
 
         {/* Cart Summary */}
-        <div className="mt-4 bg-white/[0.04] border border-white/[0.08] rounded-xl p-3 flex items-center justify-between">
+        <div className="mt-3.5 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3.5 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <ShoppingBag size={13} className="text-white/60" />
-            <span className="text-[10px] font-bold text-white uppercase">
-              Bag Total • {totalQuantity} items
+            <ShoppingBag size={13} className="text-white/70" />
+            <span className="text-[10px] font-semibold text-white/90 uppercase tracking-wider">
+              Bag Subtotal • {totalQuantity} {totalQuantity === 1 ? "item" : "items"}
             </span>
           </div>
-          {otherItems.length > 0 && (
-            <span className="text-[9px] font-medium text-white/50 uppercase tracking-wide">
-              +{otherItems.length} other items
-            </span>
-          )}
+          <span className="text-[11px] font-bold text-white">
+            ₹{items.reduce((sum, item) => sum + item.price * item.quantity, 0).toLocaleString("en-IN")}
+          </span>
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-2.5 mt-4">
+        <div className="grid grid-cols-2 gap-3 mt-4">
           <button
             onClick={() => {
               setLastAddedItem(null);
               setIsOpen(true);
             }}
-            className="flex h-10 items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-transparent text-[10px] font-bold uppercase tracking-wider text-white hover:bg-white/10 transition cursor-pointer"
+            className="flex h-11 items-center justify-center gap-1.5 rounded-full border border-white/25 bg-transparent text-[11px] font-bold uppercase tracking-wider text-white hover:bg-white/10 active:scale-[0.98] transition cursor-pointer"
           >
             View Bag
           </button>
           <Link
             href="/checkout"
             onClick={() => setLastAddedItem(null)}
-            className="flex h-10 items-center justify-center gap-1.5 rounded-xl bg-white text-[10px] font-bold uppercase tracking-wider text-black hover:bg-neutral-200 transition cursor-pointer"
+            className="flex h-11 items-center justify-center gap-1.5 rounded-full bg-white text-[11px] font-bold uppercase tracking-wider text-black hover:bg-neutral-200 active:scale-[0.98] transition cursor-pointer shadow-lg"
           >
             <span>Checkout</span>
-            <ArrowRight size={11} strokeWidth={2.4} />
+            <ArrowRight size={13} strokeWidth={2.4} />
           </Link>
         </div>
       </motion.div>
