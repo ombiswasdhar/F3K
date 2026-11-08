@@ -334,7 +334,7 @@ export default function F3KHeroSection() {
                 className="f3k-carousel-rotator relative overflow-visible" 
                 style={{ rotate: `${carouselLayout.angle}deg` }}
               >
-                <ThreeDPhotoCarousel pitch={carouselLayout.pitch} />
+                <ThreeDPhotoCarousel pitch={carouselLayout.pitch} scale={carouselLayout.scale} />
               </div>
             </div>
 

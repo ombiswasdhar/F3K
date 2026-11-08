@@ -96,7 +96,6 @@
 
 .f3k-carousel-rotator {
   transform-origin: center;
-  scale: calc(var(--carousel-scale, 153) * 0.008);
 }
 
 .f3k-grid-backdrop {
@@ -160,7 +159,7 @@
   }
 
   .f3k-carousel-rotator {
-    scale: calc(var(--carousel-scale, 153) * 0.01);
+    transform-origin: center;
   }
 }
 
