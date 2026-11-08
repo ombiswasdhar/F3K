@@ -6,6 +6,7 @@ import { useSignIn, useUser, useClerk } from "@clerk/nextjs";
 import { motion } from "framer-motion";
 import { Lock, Mail, Loader2, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 
 export default function AdminLogin() {
@@ -147,12 +148,12 @@ export default function AdminLogin() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="mb-8 flex flex-col items-center">
-          <p className="mb-2 text-[10px] font-semibold tracking-[0.5em] text-white/30 uppercase">
+          <p className="mb-3 text-[10px] font-semibold tracking-[0.5em] text-white/30 uppercase">
             Administrative
           </p>
-          <h1 className="text-3xl font-black uppercase tracking-tight text-white">
-            DRIPEGO
-          </h1>
+          <div className="relative h-8 w-24 mb-1">
+            <Image src="/logo/f3k-mark-white.png" alt="F3K" fill className="object-contain" priority />
+          </div>
           <p className="mt-1.5 text-xs text-white/40">Enter control panel</p>
         </div>
 

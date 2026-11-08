@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, Eye, EyeOff, CheckCircle2, User as UserIcon } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
@@ -112,13 +113,21 @@ export default function F3KAuthCard({
         </svg>
       </div>
 
-      {/* 4. Top Minimal Header: Brand Logo 'f3k' strictly on left, clean sky on right */}
+      {/* 4. Top Minimal Header: Official F3K Brand Mark on left */}
       <header className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 py-6 sm:py-8 flex items-center justify-between">
         <Link 
           href="/" 
-          className="font-archivo text-xl sm:text-2xl tracking-tight uppercase font-extrabold text-neutral-900 hover:opacity-75 transition select-none"
+          className="hover:opacity-80 transition-opacity flex items-center select-none"
+          aria-label="F3K Home"
         >
-          f3k
+          <Image
+            src="/logo/f3k-mark-black.png"
+            alt="F3K"
+            width={96}
+            height={32}
+            priority
+            className="h-6 sm:h-7 w-auto object-contain"
+          />
         </Link>
       </header>
 
@@ -126,23 +135,16 @@ export default function F3KAuthCard({
       <main className="relative z-20 flex-1 flex items-center justify-center px-4 py-6">
         <div className="w-full max-w-[400px] sm:max-w-[415px] rounded-[32px] bg-gradient-to-b from-[#eaf4fd]/95 via-white/98 to-white p-7 sm:p-9 shadow-[0_24px_60px_-15px_rgba(20,60,110,0.18),0_2px_10px_rgba(0,0,0,0.03)] border border-white/90 backdrop-blur-xl transition-all">
           
-          {/* Top Square Icon Badge: Arrow entering bracket [->] */}
-          <div className="w-[52px] h-[52px] rounded-2xl bg-white border border-neutral-200/80 shadow-[0_3px_12px_rgba(0,0,0,0.05)] flex items-center justify-center mx-auto mb-4.5 transition-transform hover:scale-105">
-            <svg 
-              width="22" 
-              height="22" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="text-neutral-800"
-            >
-              <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-              <polyline points="10 17 15 12 10 7" />
-              <line x1="15" y1="12" x2="3" y2="12" />
-            </svg>
+          {/* Top Square Icon Badge: Current F3K Brand Mark */}
+          <div className="w-[52px] h-[52px] rounded-2xl bg-white border border-neutral-200/80 shadow-[0_3px_12px_rgba(0,0,0,0.05)] flex items-center justify-center mx-auto mb-4.5 transition-transform hover:scale-105 p-2.5">
+            <Image
+              src="/logo/f3k-mark-black.png"
+              alt="F3K Logo"
+              width={36}
+              height={24}
+              priority
+              className="w-auto h-5 object-contain"
+            />
           </div>
 
           {/* Heading */}

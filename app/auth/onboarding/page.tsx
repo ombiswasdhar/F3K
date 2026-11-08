@@ -141,9 +141,9 @@ export default function OnboardingPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#060606] px-4 py-12 sm:px-6 lg:px-8">
       {/* Background logo texture */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.015] pointer-events-none select-none">
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none select-none">
         <div className="relative w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]">
-          <Image src="/logo/de.svg" alt="" fill />
+          <Image src="/logo/f3k-mark-white.png" alt="" fill className="object-contain" />
         </div>
       </div>
 
@@ -154,8 +154,8 @@ export default function OnboardingPage() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="flex flex-col items-center text-center mb-8">
-          <div className="relative h-7 w-12 mb-6">
-            <Image src="/logo/de.svg" alt="DRIPEGO" fill />
+          <div className="relative h-7 w-20 mb-6">
+            <Image src="/logo/f3k-mark-white.png" alt="F3K" fill className="object-contain" />
           </div>
           <h1 className="text-xl font-black uppercase tracking-wider text-white">Create Coordinate Registry</h1>
           <p className="mt-2 text-xs text-white/30">Set up your member credentials to access your private coordinates dashboard.</p>
