@@ -411,7 +411,7 @@ export default function F3KCatalogGrid() {
                     )}
                   </div>
 
-                  {/* Add to Bag Button */}
+                  {/* Add to Cart Button */}
                   <button
                     type="button"
                     onClick={() => handleAddToCart(product, currentSize)}
@@ -428,7 +428,7 @@ export default function F3KCatalogGrid() {
                     ) : (
                       <>
                         <ShoppingBag size={14} />
-                        Add to Bag
+                        Add to Cart
                       </>
                     )}
                   </button>
@@ -550,7 +550,7 @@ export default function F3KCatalogGrid() {
                     className="w-full py-3 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition flex items-center justify-center gap-2"
                   >
                     <ShoppingBag size={14} />
-                    Add to Bag
+                    Add to Cart
                   </button>
                   <Link
                     href={`/products/${quickViewProduct.slug}`}

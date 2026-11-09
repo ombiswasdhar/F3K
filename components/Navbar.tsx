@@ -152,11 +152,11 @@ export default function Navbar() {
             )}
           </Link>
 
-          {/* Cart Bag Trigger Button (works for both guests & members) */}
+          {/* Cart Trigger Button (works for both guests & members) */}
           <button
             suppressHydrationWarning
             onClick={() => setIsOpen(true)}
-            aria-label="Shopping Bag"
+            aria-label="Cart"
             className="relative grid size-10 place-items-center rounded-full border border-white/15 bg-white/[0.07] text-white/70 transition hover:bg-white/15 hover:text-white cursor-pointer"
           >
             <ShoppingBag size={15} strokeWidth={1.8} />

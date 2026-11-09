@@ -216,7 +216,7 @@ export default function GarmentBlueprintModal({ product, onClose }: GarmentBluep
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleAddToCart}
-                data-cursor="ADD TO BAG"
+                data-cursor="ADD TO CART"
                 className="flex-1 border py-3 px-6 font-mono text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
                 style={{
                   backgroundColor: "var(--accent-color)",
@@ -224,7 +224,7 @@ export default function GarmentBlueprintModal({ product, onClose }: GarmentBluep
                   borderColor: "var(--border-color)",
                 }}
               >
-                <span>{added ? "ADDED TO BAG! ✓" : "ACQUIRE PIECE — ADD TO BAG"}</span>
+                <span>{added ? "ADDED TO CART! ✓" : "ACQUIRE PIECE — ADD TO CART"}</span>
                 <span>[+]</span>
               </button>
             </div>

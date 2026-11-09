@@ -312,7 +312,7 @@ export default function CheckoutPage() {
               <ShoppingBag size={28} />
             </div>
             <h1 className="font-sans font-bold text-2xl uppercase tracking-tight text-neutral-900">
-              Your Shopping Bag Is Empty
+              Your Cart Is Empty
             </h1>
             <p className="mt-2 text-xs sm:text-sm text-neutral-500 leading-relaxed max-w-sm mx-auto">
               You do not have any items in your checkout session yet. Browse Drop 001 heavyweight streetwear to continue.

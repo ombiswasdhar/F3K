@@ -473,7 +473,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: Produ
             <button
               type="button"
               onClick={() => setCartOpen(true)}
-              aria-label="Open Shopping Bag"
+              aria-label="Open Cart"
               className="relative size-9 rounded-full bg-white/80 text-neutral-700 border border-neutral-300 grid place-items-center hover:bg-white hover:text-black transition shadow-xs cursor-pointer"
             >
               <ShoppingBag size={14} />
@@ -704,12 +704,12 @@ export default function ProductDetailsClient({ product, relatedProducts }: Produ
                       {addedFeedback ? (
                         <>
                           <Check size={16} />
-                          Added To Bag
+                          Added To Cart
                         </>
                       ) : (
                         <>
                           <ShoppingBag size={16} />
-                          Add To Bag • ₹{(product.price * quantity).toLocaleString("en-IN")}
+                          Add To Cart • ₹{(product.price * quantity).toLocaleString("en-IN")}
                         </>
                       )}
                     </button>

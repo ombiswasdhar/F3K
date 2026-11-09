@@ -62,7 +62,7 @@ export default function CartDrawer() {
                 <div className="flex items-center gap-2.5">
                   <ShoppingBag size={16} className="text-neutral-900" />
                   <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-900">
-                    Shopping Bag ({items.reduce((acc, curr) => acc + curr.quantity, 0)})
+                    Cart ({items.reduce((acc, curr) => acc + curr.quantity, 0)})
                   </h3>
                 </div>
                 <button
@@ -81,9 +81,9 @@ export default function CartDrawer() {
                     <div className="border border-neutral-300 p-4 mb-4 rounded-full">
                       <ShoppingBag size={24} className="opacity-40" />
                     </div>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-neutral-800 mb-1">Your bag is empty</p>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-neutral-800 mb-1">Your cart is empty</p>
                     <p className="text-xs text-neutral-500 max-w-xs mb-6">
-                      Explore our collections and add pieces to your bag.
+                      Explore our collections and add pieces to your cart.
                     </p>
                     <button
                       onClick={() => setIsOpen(false)}

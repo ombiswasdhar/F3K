@@ -100,7 +100,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
 
   // Active mobile tab logic (faithful to Dribbble reference capsule nav)
   const getActiveTab = () => {
-    if (isCartOpen) return "bag";
+    if (isCartOpen) return "cart";
     if (isSearchOpen) return "search";
     if (isWishlistOpen) return "wishlist";
     if (pathname.startsWith("/products") || pathname === "/men" || pathname === "/women") return "shop";
@@ -169,8 +169,8 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
       }
     },
     { 
-      id: "bag", 
-      label: "Bag", 
+      id: "cart", 
+      label: "Cart", 
       icon: SolidBagIcon, 
       badge: mounted && cartCount > 0 ? cartCount : undefined,
       onClick: () => {
@@ -503,17 +503,14 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                           </div>
 
                           <div className="flex items-center gap-1 shrink-0">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setIsOpen(true);
-                                setIsWishlistOpen(false);
-                              }}
-                              className="px-2 py-1 bg-black text-white text-[9px] font-semibold rounded hover:bg-neutral-800 transition cursor-pointer"
-                              title="Open cart"
+                            <Link
+                              href={`/products/${item.slug}`}
+                              onClick={() => setIsWishlistOpen(false)}
+                              className="px-2 py-1 bg-black text-white text-[9px] font-semibold rounded hover:bg-neutral-800 transition cursor-pointer inline-flex items-center"
+                              title="View product"
                             >
                               View
-                            </button>
+                            </Link>
                             <button
                               type="button"
                               onClick={() => removeWishlistItem(item.product_id)}
@@ -550,11 +547,11 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
             )}
           </div>
 
-          {/* Cart Bag Trigger */}
+          {/* Cart Trigger */}
           <button 
             type="button" 
             onClick={() => setIsOpen(true)} 
-            aria-label="Open shopping bag" 
+            aria-label="Open cart" 
             className="relative ml-0.5 transition-colors hover:text-neutral-300 flex items-center cursor-pointer p-0.5"
           >
             <ShoppingBag size={13} />
@@ -840,16 +837,14 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                     <div className="text-[9px] text-neutral-500">₹{item.price.toLocaleString("en-IN")}</div>
                   </div>
                   <div className="flex items-center gap-1 shrink-0">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsOpen(true);
-                        setIsWishlistOpen(false);
-                      }}
-                      className="px-2 py-0.5 bg-black text-white text-[9px] font-semibold rounded hover:bg-neutral-800 transition cursor-pointer"
+                    <Link
+                      href={`/products/${item.slug}`}
+                      onClick={() => setIsWishlistOpen(false)}
+                      className="px-2 py-0.5 bg-black text-white text-[9px] font-semibold rounded hover:bg-neutral-800 transition cursor-pointer inline-flex items-center"
+                      title="View product"
                     >
                       View
-                    </button>
+                    </Link>
                     <button
                       type="button"
                       onClick={() => removeWishlistItem(item.product_id)}

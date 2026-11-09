@@ -759,7 +759,7 @@ export default function DashboardContent() {
                           }}
                           className="px-3 py-1.5 rounded-lg bg-neutral-900 text-white text-xs font-semibold hover:bg-black transition cursor-pointer"
                         >
-                          Add to Bag
+                          Add to Cart
                         </button>
                         <button
                           type="button"

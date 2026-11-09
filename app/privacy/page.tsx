@@ -47,7 +47,7 @@ export default function PrivacyPage() {
                 3. Cookies and Session Storage
               </h2>
               <p className="mt-2">
-                We use essential session tokens to manage authentication and preserve shopping bag items across visits.
+                We use essential session tokens to manage authentication and preserve cart items across visits.
               </p>
             </section>
 
