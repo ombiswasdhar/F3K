@@ -131,11 +131,11 @@ export default function F3KHeroSection() {
             </div>
           </div>
 
-          {/* Bottom Row: Newsletter / Priority Access (Left) + Geolocation (Right on desktop, aligned left on mobile) */}
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-2.5 md:gap-6 pt-3 md:pt-4 border-t border-white/15 pointer-events-auto text-[9px] sm:text-[11px]">
+          {/* Bottom Row: Newsletter / Priority Access (Desktop only) + Geolocation (Right) */}
+          <div className="flex items-end justify-end md:justify-between pt-3 md:pt-4 border-t border-white/15 pointer-events-auto text-[9px] sm:text-[11px]">
             
-            {/* Bottom-Left: Priority Access Signup */}
-            <div className="space-y-1.5 sm:space-y-2 w-full sm:w-auto">
+            {/* Bottom-Left: Priority Access Signup (Hidden on mobile) */}
+            <div className="hidden md:block space-y-1.5 sm:space-y-2 w-auto">
               <span className="text-[9px] sm:text-[10px] tracking-widest text-white/50 uppercase block">
                 Be The First To Know
               </span>
@@ -167,7 +167,7 @@ export default function F3KHeroSection() {
             </div>
 
             {/* Bottom-Right: Geolocation */}
-            <div className="w-full md:w-auto text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
+            <div className="text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
               <p className="text-white/85 tracking-wider font-semibold">MUMBAI &bull; NAGPUR &bull; INDIA</p>
               <p className="text-[8px] sm:text-[9px] text-white/35">&copy; 2026 F3K. ALL RIGHTS RESERVED.</p>
             </div>
