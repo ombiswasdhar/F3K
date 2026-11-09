@@ -86,7 +86,7 @@ export default function ReturnsPage() {
               3. Refund Processing Timelines
             </h2>
             <p>
-              Once your parcel arrives at our atelier hub (Tokyo or Mumbai) and passes quality verification, your refund will be triggered immediately. UPI and credit card transactions reflect within 3–5 business days. Store credits are available instantly.
+              Once your parcel arrives at our distribution hub (Tokyo or Mumbai) and passes quality verification, your refund will be triggered immediately. UPI and credit card transactions reflect within 3–5 business days. Store credits are available instantly.
             </p>
           </section>
 

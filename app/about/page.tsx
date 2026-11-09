@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "F3K builds heavyweight streetwear by cutting and stitching fiber-dyed cotton panels instead of applying surface plastisol print.",
 };
 
-// Spliced T-Shirts Gallery Data (Authentic F3K Atelier Garment Development)
+// Spliced T-Shirts Gallery Data (F3K Garment Development)
 const SPLICED_TEES = [
   {
     id: 101,
@@ -112,7 +112,7 @@ export default function AboutPage() {
               <div className="relative w-48 sm:w-64 md:w-72 aspect-[3/4] bg-neutral-900 rounded-none overflow-hidden shadow-2xl border border-neutral-300 group">
                 <Image
                   src="/models/men_model.jpg"
-                  alt="FUTURE 3000 Spliced Atelier Portrait"
+                  alt="FUTURE 3000 Spliced Portrait"
                   fill
                   priority
                   sizes="(max-width: 768px) 256px, 288px"
@@ -176,7 +176,7 @@ export default function AboutPage() {
               <div className="lg:col-span-4 space-y-6">
                 <div>
                   <span className="font-sans text-xs font-semibold tracking-[0.14em] text-neutral-400 uppercase block mb-2">
-                    THE ATELIER PHILOSOPHY
+                    THE DESIGN PHILOSOPHY
                   </span>
                   <h3 className="font-archivo font-bold uppercase tracking-[-0.01em] text-3xl sm:text-4xl text-neutral-900 leading-tight">
                     PANEL CUTS<br />
@@ -189,7 +189,7 @@ export default function AboutPage() {
                 <div className="relative w-40 sm:w-48 aspect-[3/4] bg-neutral-100 rounded-none overflow-hidden border border-neutral-300 shadow-md">
                   <Image
                     src="/models/women_model.jpg"
-                    alt="Atelier Craft Portrait"
+                    alt="Garment Craft Portrait"
                     fill
                     sizes="192px"
                     className="object-cover object-top filter grayscale contrast-110"
@@ -315,7 +315,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-10">
                 <span className="font-sans text-xs font-semibold tracking-[0.14em] text-neutral-400 uppercase block mb-1">
-                  ATELIER STANDARDS
+                  GARMENT STANDARDS
                 </span>
                 <h3 className="font-archivo font-bold uppercase text-2xl sm:text-4xl text-neutral-900 tracking-[-0.01em]">
                   CONVENTIONAL PRINT VS. SPLICED CONSTRUCTION
@@ -369,7 +369,7 @@ export default function AboutPage() {
 
           {/* ─── 8. BOTTOM MONOGRAPH BASELINE ─── */}
           <footer className="pt-8 sm:pt-12 mt-8 border-t border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-neutral-500 uppercase tracking-wider">
-            <div>FUTURE 3000 • DROP 001 ATELIER</div>
+            <div>FUTURE 3000 • DROP 001</div>
             <div className="text-neutral-700 font-semibold font-archivo">CUT-AND-SEW COTTON CONSTRUCTION</div>
           </footer>
 
@@ -379,7 +379,7 @@ export default function AboutPage() {
       {/* Fixed Architectural Sidebars for Desktop */}
       <F3KSidebars color="black" desktopOnly permanent />
 
-      {/* Atelier Footer */}
+      {/* Footer */}
       <F3KFooter />
     </div>
   );

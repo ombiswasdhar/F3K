@@ -9,7 +9,7 @@ import CartDrawer from "@/components/CartDrawer";
 import CartToast from "@/components/CartToast";
 
 export const metadata: Metadata = {
-  title: "F3K • FUTURE 3000 • Heavyweight Streetwear Atelier",
+  title: "F3K • FUTURE 3000 • Heavyweight Streetwear",
   description:
     "Heavyweight streetwear constructed with multi-panel cut-and-sew cotton. Built with 280 to 500 GSM combed fabrics in India.",
   metadataBase: new URL("https://future3000.com"),

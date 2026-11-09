@@ -81,7 +81,7 @@ export default function DripegoHeader() {
       {/* Right: Local Clock & Interactive Bag Button */}
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="hidden lg:flex flex-col text-right leading-tight font-mono text-[11px]">
-          <span className="text-[9px] uppercase tracking-widest opacity-50">Atelier Time</span>
+          <span className="text-[9px] uppercase tracking-widest opacity-50">Studio Time</span>
           <span className="font-medium flex items-center justify-end gap-1.5">
             <span className="opacity-70">ZUR</span>
             <span>{zurichTime || "--:--:--"}</span>
@@ -126,7 +126,7 @@ export default function DripegoHeader() {
             className="py-1 border-b border-dashed"
             style={{ borderColor: "var(--border-light)" }}
           >
-            01. Atelier Pillars
+            01. Design Pillars
           </a>
           <a
             href="#manifesto"

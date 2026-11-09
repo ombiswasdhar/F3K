@@ -181,6 +181,7 @@ const legacySlugMap: Record<string, string> = {
   "cyber-matrix-tee": "crot-01-orbital-tee",
   "archival-monogram-tee": "monolith-01-stonewashed-tee",
   "futurist-phantom-tee": "sanctum-spliced-tee",
+  "tokyo-studio-tee": "bemuth-01-architectural-tee",
   "tokyo-atelier-tee": "bemuth-01-architectural-tee",
   "retro-racing-tee": "arch-01-panel-tee",
   "raw-edge-tee": "sanctum-spliced-tee",

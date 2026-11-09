@@ -25,7 +25,7 @@ export default function DripegoNorthStar() {
       left: "Exclusivity",
       right: "Democratic Expression",
       synthesis: "Strictly limited, serialized drops of 500 units worldwide protect the collector's provenance, backed by cryptographic NFC verification embedded directly into each garment.",
-      secretNote: "LEDGER DATA: 42/500 UNITS RESERVED IN THE ATELIER ARCHIVE VAULT",
+      secretNote: "LEDGER DATA: 42/500 UNITS RESERVED IN THE ARCHIVE VAULT",
     },
   ];
 
@@ -33,7 +33,7 @@ export default function DripegoNorthStar() {
     <section id="north-star" className="relative py-16 md:py-24 px-4 md:px-8 border-t transition-colors duration-400" style={{ borderColor: "var(--border-light)" }}>
       <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest opacity-60 mb-8 pb-3 border-b" style={{ borderColor: "var(--border-light)" }}>
         <span>03 // NORTH STAR</span>
-        <span>ATELIER PHILOSOPHY & SOVEREIGNTY</span>
+        <span>BRAND PHILOSOPHY & SOVEREIGNTY</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -112,7 +112,7 @@ export default function DripegoNorthStar() {
                       color: "var(--accent-color)",
                     }}
                   >
-                    <span className="font-bold">↳ [ATELIER_VAULT]:</span>
+                    <span className="font-bold">↳ [STUDIO_VAULT]:</span>
                     <span>{pillar.secretNote}</span>
                   </div>
                 )}

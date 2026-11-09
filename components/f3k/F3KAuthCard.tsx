@@ -32,7 +32,7 @@ export default function F3KAuthCard({
     e.preventDefault();
     setLoading(true);
 
-    // Simulate authentic atelier login / registration sequence
+    // Simulate member login / registration sequence
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
@@ -55,7 +55,7 @@ export default function F3KAuthCard({
 
   const handleQuickDemoLogin = () => {
     setEmail("collector@f3k.com");
-    setPassword("atelier2026");
+    setPassword("member2026");
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -149,13 +149,13 @@ export default function F3KAuthCard({
 
           {/* Heading */}
           <h1 className="text-[22px] font-bold tracking-tight text-neutral-900 text-center">
-            {mode === "sign-in" ? "Sign in with email" : "Create atelier account"}
+            {mode === "sign-in" ? "Sign in with email" : "Create member account"}
           </h1>
 
           {/* Subtitle with F3K Streetwear Context */}
           <p className="text-[12.5px] text-neutral-500 text-center max-w-[285px] mx-auto mt-2 mb-6 leading-relaxed">
             {mode === "sign-in"
-              ? "Access your Drop 001 reservations, order tracking, and private atelier member privileges."
+              ? "Access your Drop 001 reservations, order tracking, and private member privileges."
               : "Join the F3K collector list for exclusive access to Drop 001 and future numbered releases."}
           </p>
 
@@ -313,7 +313,7 @@ export default function F3KAuthCard({
                   </p>
                 ) : (
                   <p className="text-[11px] text-neutral-500">
-                    Already an atelier collector?{" "}
+                    Already a member?{" "}
                     <button
                       type="button"
                       onClick={() => setMode("sign-in")}

@@ -43,7 +43,7 @@ export default function F3KFooter() {
             </p>
             <div className="pt-1">
               <Link href="/about" className="text-xs font-sans tracking-wider uppercase text-white underline underline-offset-4 hover:text-neutral-300 transition">
-                About the Atelier →
+                About F3K →
               </Link>
             </div>
           </div>

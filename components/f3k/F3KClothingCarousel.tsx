@@ -112,7 +112,7 @@ export default function F3KClothingCarousel({ embedded = false }: { embedded?: b
 
       {!embedded && (
         <div className="mx-auto flex max-w-[1500px] items-center justify-between px-5 text-[9px] font-sans font-semibold uppercase tracking-[0.18em] text-black/45 sm:px-8 lg:px-12">
-          <span>Drop 001 — F3K Atelier</span>
+          <span>Drop 001 • F3K Studio</span>
           <span className="sm:hidden">Drag to rotate · Tap to view</span>
           <span className="hidden sm:inline">Five silhouettes • Drop 001</span>
         </div>

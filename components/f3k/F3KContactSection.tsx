@@ -14,7 +14,7 @@ import {
   Package
 } from "lucide-react";
 
-export default function F3KAtelierStore() {
+export default function F3KContactSection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [orderId, setOrderId] = useState("");
@@ -52,7 +52,7 @@ export default function F3KAtelierStore() {
                   Contact Us
                 </h2>
                 <p className="mt-4 text-sm text-neutral-600 leading-relaxed font-sans">
-                  Have a question about an order, sizing, shipping, or returns? Send us a message below or email our atelier support specialists directly at{" "}
+                  Have a question about an order, sizing, shipping, or returns? Send us a message below or email our support specialists directly at{" "}
                   <a href="mailto:support@f3k.com" className="text-black font-semibold underline underline-offset-2">
                     support@f3k.com
                   </a>.
@@ -272,4 +272,4 @@ export default function F3KAtelierStore() {
   );
 }
 
-export { F3KAtelierStore as F3KContactBox };
+export { F3KContactSection as F3KContactBox };

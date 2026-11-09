@@ -31,7 +31,7 @@ export default function CartDrawer() {
   if (!mounted) return null;
 
   const subtotal = getCartSubtotal();
-  const shipping = 0; // Complimentary atelier shipping on Drop 001
+  const shipping = 0; // Complimentary shipping on Drop 001
   const total = subtotal + shipping;
 
   return (

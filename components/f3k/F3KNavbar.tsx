@@ -388,7 +388,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
             )}
           </div>
 
-          {/* 3b. About the Atelier */}
+          {/* 3b. About F3K */}
           <Link
             href="/about"
             className="transition-colors hover:text-neutral-300 font-medium cursor-pointer"
@@ -589,7 +589,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
               {/* Member Status Header */}
               <div className="p-2.5 border-b border-neutral-100 flex items-center justify-between">
                 <div>
-                  <div className="text-[11px] font-bold tracking-tight text-neutral-900 uppercase">Client Atelier</div>
+                  <div className="text-[11px] font-bold tracking-tight text-neutral-900 uppercase">Member Portal</div>
                   <div className="text-[9px] text-neutral-500 font-sans">Member Services &amp; Drops</div>
                 </div>
                 <Link

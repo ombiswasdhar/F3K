@@ -172,7 +172,7 @@ export default function DripegoManifesto() {
       {/* Infinite Ticker Tape Marquee */}
       <div className="mt-16 border-y py-3 overflow-hidden font-mono text-xs uppercase tracking-widest" style={{ borderColor: "var(--border-color)" }}>
         <div className="animate-marquee whitespace-nowrap flex gap-12">
-          <span>f3k atelier</span>
+          <span>f3k studio</span>
           <span className="opacity-40">{"//"}</span>
           <span>own the room</span>
           <span className="opacity-40">{"//"}</span>
@@ -186,7 +186,7 @@ export default function DripegoManifesto() {
           <span className="opacity-40">{"//"}</span>
           <span>presence by design</span>
           <span className="opacity-40">{"//"}</span>
-          <span>f3k atelier</span>
+          <span>f3k studio</span>
           <span className="opacity-40">{"//"}</span>
           <span>own the room</span>
           <span className="opacity-40">{"//"}</span>

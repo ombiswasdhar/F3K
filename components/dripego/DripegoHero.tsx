@@ -45,7 +45,7 @@ export default function DripegoHero() {
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-baseline">
         <div className="relative">
           <div className="inline-block border px-2 py-0.5 text-[10px] font-mono tracking-widest uppercase mb-3 bg-[var(--card-bg)]">
-            ATELIER STREETWEAR // DROP 001
+            HEAVYWEIGHT STREETWEAR // DROP 001
           </div>
           <h1 className="font-reality text-5xl sm:text-7xl md:text-8xl lg:text-[7.2rem] leading-[0.88] tracking-tight">
             Presence,
@@ -134,7 +134,7 @@ export default function DripegoHero() {
         </div>
       </div>
 
-      {/* Bottom Section: Core Atelier Pillars (Left) + Atelier Bio (Right) */}
+      {/* Bottom Section: Core Pillars (Left) + Studio Bio (Right) */}
       <div id="threads" className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6 border-t" style={{ borderColor: "var(--border-light)" }}>
         {/* Core Pillars (Cols 1-7) */}
         <div className="lg:col-span-7 flex flex-col justify-between">
@@ -142,7 +142,7 @@ export default function DripegoHero() {
             <div className="flex items-center gap-2 mb-3">
               <span className="w-1.5 h-1.5 bg-current" />
               <h2 className="font-mono text-xs uppercase tracking-widest font-semibold">
-                Core threads of the atelier
+                Core garment construction
               </h2>
             </div>
 
@@ -185,7 +185,7 @@ export default function DripegoHero() {
             </div>
 
             <p className="text-xs md:text-sm leading-relaxed mb-4">
-              <strong className="font-semibold">F3K</strong> is a precision streetwear atelier operating at the intersection of architectural silhouettes, high-density textiles, and uncompromising identity. Each piece is engineered to command the room without saying a word.
+              <strong className="font-semibold">F3K</strong> is an independent streetwear studio operating at the intersection of architectural silhouettes, high-density textiles, and uncompromising identity. Each piece is engineered to command the room without saying a word.
             </p>
 
             {/* Direct Action Pills */}

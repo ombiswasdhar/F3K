@@ -22,7 +22,7 @@ export default function DashboardPage() {
               <div className="flex h-[400px] flex-col items-center justify-center gap-3">
                 <div className="size-8 animate-spin rounded-full border-2 border-neutral-300 border-t-neutral-900" />
                 <p className="text-xs font-mono tracking-wider text-neutral-500 uppercase">
-                  Loading Atelier Account...
+                  Loading Account...
                 </p>
               </div>
             }
@@ -32,7 +32,7 @@ export default function DashboardPage() {
         </div>
       </main>
 
-      {/* Global Atelier Footer */}
+      {/* Global Footer */}
       <F3KFooter />
     </div>
   );

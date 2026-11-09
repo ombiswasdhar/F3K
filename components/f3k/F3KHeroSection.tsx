@@ -247,7 +247,7 @@ export default function F3KHeroSection() {
 
         {/* Footer: Starts in 2nd grid on left, ends in 2nd grid on right */}
         <footer className="relative z-10 w-full px-5 sm:px-8 md:px-[72px] pb-24 sm:pb-24 lg:pb-24 pt-4 sm:pt-8 flex items-end justify-between gap-6 text-[9.5px] sm:text-[11px] lg:text-[12px] font-sans leading-[1.35] lg:leading-[1.45]">
-          <p>F3K Atelier<br />Heavyweight cut-and-sew construction.</p>
+          <p>F3K Studio<br />Heavyweight cut-and-sew construction.</p>
           <p className="text-right">© FUTURE3000<br />All rights reserved.</p>
         </footer>
       </div>
@@ -263,9 +263,9 @@ export default function F3KHeroSection() {
               <span className="text-white/40">•</span>
               <span>SHOP BLACK FRIDAY SALE</span>
               <span className="text-white/40">•</span>
-              <span className="text-white/55">F3K ATELIER</span>
+              <span className="text-white/55">F3K STUDIO</span>
               <span className="text-white/40">•</span>
-              <span>OWN THE ROOM</span>
+              <span>HEAVYWEIGHT ESSENTIALS</span>
               <span className="text-white/40">•</span>
             </span>
           ))}

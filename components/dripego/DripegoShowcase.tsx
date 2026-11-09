@@ -110,7 +110,7 @@ export default function DripegoShowcase() {
         "Deep sulfur black dye with ultraviolet degradation protection",
         "Heavy gauge neck tape preventing skin abrasion",
         "Precision balanced weight distribution: hangs strictly perpendicular",
-        "Hand-inspected and numbered in Zurich atelier",
+        "Hand-inspected and numbered in Zurich studio",
       ],
     },
     {
@@ -281,7 +281,7 @@ export default function DripegoShowcase() {
           <span className="hidden sm:inline-block border border-white/60 px-2 py-0.5 bg-black font-semibold text-[10px]">
             COORD: 47.3769° N, 8.5417° E
           </span>
-          <span className="font-bold tracking-wider text-white">ATELIER HALL OF FAME // SERIALIZED PIECES</span>
+          <span className="font-bold tracking-wider text-white">GARMENTS HALL OF FAME // SERIALIZED PIECES</span>
         </div>
       </div>
 

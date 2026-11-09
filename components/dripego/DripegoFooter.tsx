@@ -23,7 +23,7 @@ export default function DripegoFooter() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 font-mono text-[10px] uppercase tracking-widest opacity-60 mb-12 pb-4 border-b" style={{ borderColor: "var(--border-light)" }}>
         <div className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>ATELIER: ZURICH / PARIS / TOKYO</span>
+          <span>STUDIO: ZURICH / PARIS / TOKYO</span>
         </div>
         <div>
           <span>COORDINATES: 47.3769° N, 8.5417° E</span>
@@ -66,7 +66,7 @@ export default function DripegoFooter() {
         <div className="md:col-span-5 flex flex-col justify-between h-full">
           <div>
             <div className="font-mono text-xs uppercase tracking-widest opacity-60 mb-3">
-              ATELIER CHANNELS
+              DIRECT CHANNELS
             </div>
             <div className="flex flex-col gap-2 font-mono text-xs uppercase">
               <a
@@ -121,7 +121,7 @@ export default function DripegoFooter() {
           F3K 2025/2026 // PRESENCE BY DESIGN
         </div>
         <div>
-          500 GSM HEAVYWEIGHT STREETWEAR ATELIER
+          500 GSM HEAVYWEIGHT STREETWEAR STUDIO
         </div>
       </div>
     </footer>

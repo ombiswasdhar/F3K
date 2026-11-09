@@ -68,7 +68,7 @@ const defaultAddresses: AddressItem[] = [
   },
   {
     id: "addr_2",
-    label: "Atelier Studio",
+    label: "Design Studio",
     fullName: "Kenji Sato",
     phone: "+91 98201 44820",
     address: "14th Road, Off Linking Road, Khar West",
@@ -972,7 +972,7 @@ export default function DashboardContent() {
                   Profile &amp; Personal Details
                 </h2>
                 <p className="text-xs text-neutral-500">
-                  Manage your personal atelier identity and preferences.
+                  Manage your personal account details and preferences.
                 </p>
               </div>
 
@@ -1033,7 +1033,7 @@ export default function DashboardContent() {
                   >
                     <option value="Unisex • Menswear">Unisex • Menswear Heavyweight</option>
                     <option value="Womenswear">Womenswear Architectural</option>
-                    <option value="All Categories">All Atelier Categories</option>
+                    <option value="All Categories">All Categories</option>
                   </select>
                 </div>
 
@@ -1166,7 +1166,7 @@ export default function DashboardContent() {
                   Password &amp; Security
                 </h2>
                 <p className="text-xs text-neutral-500">
-                  Protect your atelier membership and payment credentials.
+                  Protect your membership and payment credentials.
                 </p>
               </div>
 
@@ -1296,7 +1296,7 @@ export default function DashboardContent() {
                 <div className="relative">
                   <div className="absolute -left-6 top-0.5 size-3 rounded-full bg-emerald-500 ring-4 ring-emerald-100" />
                   <div className="font-bold text-neutral-900">Order Confirmed &amp; Serialized</div>
-                  <div className="text-[10px] text-neutral-500 font-sans">Tokyo Atelier &bull; Drop 001 Number Tag Attached</div>
+                  <div className="text-[10px] text-neutral-500 font-sans">Tokyo Studio &bull; Drop 001 Number Tag Attached</div>
                 </div>
 
                 <div className="relative">

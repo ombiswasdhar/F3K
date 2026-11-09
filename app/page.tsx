@@ -7,7 +7,7 @@ import F3KSidebars from "@/components/f3k/F3KSidebars";
 import F3KCatalogGrid from "@/components/f3k/F3KCatalogGrid";
 import F3KEditorialManifesto from "@/components/f3k/F3KEditorialManifesto";
 import F3KCollectionsBento from "@/components/f3k/F3KCollectionsBento";
-import F3KAtelierStore from "@/components/f3k/F3KAtelierStore";
+import F3KContactSection from "@/components/f3k/F3KContactSection";
 import F3KDropAccess from "@/components/f3k/F3KDropAccess";
 import F3KFooter from "@/components/f3k/F3KFooter";
 
@@ -33,7 +33,7 @@ export default function Home() {
         <F3KCollectionsBento />
 
         {/* 5. Customer Care & Contact Us Box: Direct inquiries, support channels, and order help */}
-        <F3KAtelierStore />
+        <F3KContactSection />
 
         {/* 6. Drop 002 Priority Access: Genuine streetwear drop list and SMS notification */}
         <F3KDropAccess />
@@ -42,7 +42,7 @@ export default function Home() {
       {/* Reactive Fixed Sidebars (Rendered at root after <main> so they visibly cover sticky bars) */}
       <F3KSidebars />
 
-      {/* 7. Atelier Footer: Full customer care, shipping & returns, sizing guide, currency switcher, and socials */}
+      {/* 7. Footer: Full customer care, shipping & returns, sizing guide, currency switcher, and socials */}
       <F3KFooter />
     </div>
   );

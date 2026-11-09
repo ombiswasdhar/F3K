@@ -56,7 +56,7 @@ function _initRuntimeTelemetry() {
       if (e.ctrlKey && e.altKey && e.shiftKey && (e.key === "O" || e.key === "o")) {
         const cert = _vDec();
         console.log(
-          `%c[F3K ATELIER]\n` +
+          `%c[F3K STUDIO]\n` +
           `==================================================\n` +
           `BUILD MATRIX:  ${cert}\n` +
           `CHECKSUM:      ${_V_SIG}\n` +

@@ -102,9 +102,9 @@ export default function DripegoLoader({ isTransition = false }: DripegoLoaderPro
       `}</style>
 
       <div className="flex flex-col items-center text-center px-4">
-        {/* Atelier Eyebrow */}
+        {/* System Eyebrow */}
         <span className="font-mono text-[10px] tracking-[0.3em] text-neutral-400 uppercase select-none mb-2">
-          [ ATELIER CALIBRATION ]
+          [ SYSTEM CALIBRATION ]
         </span>
 
         {/* F3K Main Bold Brand Mark Lockup */}
