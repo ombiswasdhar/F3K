@@ -94,7 +94,7 @@ export default function F3KHeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40 pointer-events-none" />
 
         {/* ================= EDITORIAL OVERLAY CONTAINER ================= */}
-        <div className="relative z-10 w-full h-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 flex flex-col justify-between pt-20 sm:pt-24 pb-24 sm:pb-10 font-mono text-white pointer-events-none">
+        <div className="relative z-10 w-full h-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 flex flex-col justify-between pt-20 sm:pt-24 pb-[82px] md:pb-10 font-mono text-white pointer-events-none">
           
           {/* Top Row: Brand Info (Left - desktop only) & Atmospheric Details (Right) */}
           <div className="flex items-start justify-end sm:justify-between gap-4 sm:gap-6 pointer-events-auto">
@@ -131,8 +131,8 @@ export default function F3KHeroSection() {
             </div>
           </div>
 
-          {/* Bottom Row: Newsletter / Priority Access (Left) + Geolocation (Right) */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-6 pt-3 sm:pt-4 border-t border-white/15 pointer-events-auto text-[9px] sm:text-[11px]">
+          {/* Bottom Row: Newsletter / Priority Access (Left) + Geolocation (Right on desktop, aligned left on mobile) */}
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-2.5 md:gap-6 pt-3 md:pt-4 border-t border-white/15 pointer-events-auto text-[9px] sm:text-[11px]">
             
             {/* Bottom-Left: Priority Access Signup */}
             <div className="space-y-1.5 sm:space-y-2 w-full sm:w-auto">
@@ -166,8 +166,8 @@ export default function F3KHeroSection() {
               </div>
             </div>
 
-            {/* Bottom-Right: Geolocation */}
-            <div className="text-left sm:text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
+            {/* Bottom-Right: Geolocation (Left-aligned with email on mobile, right-aligned on desktop) */}
+            <div className="text-left md:text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
               <p className="text-white/85 tracking-wider font-semibold">MUMBAI &bull; NAGPUR &bull; INDIA</p>
               <p className="text-[8px] sm:text-[9px] text-white/35">&copy; 2026 F3K. ALL RIGHTS RESERVED.</p>
             </div>
