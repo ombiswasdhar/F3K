@@ -57,27 +57,8 @@ const Carousel = memo(({ cards, pitch }: { cards: string[]; pitch: number }) => 
       <motion.div drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0} dragMomentum={false} className="relative flex h-full origin-center cursor-default justify-center overflow-visible" style={{ rotateX: pitch, rotateY: rotation, width: cylinderWidth, transformStyle: "preserve-3d" }}
         onDrag={(_, info) => rotation.set(rotation.get() + info.delta.x * 0.14)}>
         {cards.map((imgUrl, i) => (
-          <motion.div 
-            key={`key-${imgUrl}-${i}`} 
-            className="absolute flex h-full origin-center items-center justify-center p-2" 
-            style={{ 
-              width: `${faceWidth}px`, 
-              transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden"
-            }}
-          >
-            <img 
-              src={imgUrl} 
-              alt={`FUTURE3000 clothing item ${i + 1}`} 
-              className="pointer-events-none aspect-square w-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)] select-none" 
-              loading="eager"
-              decoding="async"
-              style={{
-                imageRendering: "auto",
-                transform: "translateZ(0)",
-              }}
-            />
+          <motion.div key={`key-${imgUrl}-${i}`} className="absolute flex h-full origin-center items-center justify-center p-2" style={{ width: `${faceWidth}px`, transform: `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)` }}>
+            <motion.img src={imgUrl} alt={`FUTURE3000 clothing item ${i + 1}`} layoutId={`img-${i}`} className="pointer-events-none aspect-square w-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.12)]" initial={{ filter: "blur(4px)" }} layout="position" animate={{ filter: "blur(0px)" }} transition={transition as any} />
           </motion.div>
         ))}
       </motion.div>
