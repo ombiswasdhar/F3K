@@ -56,9 +56,9 @@ export default function ShippingPage() {
                 4. Initiating an Exchange
               </h2>
               <p className="mt-2">
-                To begin a return or exchange request, email our concierge team with your order number at{" "}
-                <a href="mailto:hello@f3k.com" className="text-white underline underline-offset-2">
-                  hello@f3k.com
+                To begin a return or exchange request, email our customer support team with your order number at{" "}
+                <a href="mailto:support@f3k.com" className="text-white underline underline-offset-2">
+                  support@f3k.com
                 </a>.
               </p>
             </section>

@@ -73,9 +73,9 @@ export default function ReturnsPage() {
               <Link href="/dashboard?tab=orders" className="text-black font-semibold underline underline-offset-2">
                 My Orders
               </Link>
-              , or email our concierge at{" "}
-              <a href="mailto:concierge@f3k.com" className="text-black font-semibold underline underline-offset-2">
-                concierge@f3k.com
+              , or email our customer support at{" "}
+              <a href="mailto:support@f3k.com" className="text-black font-semibold underline underline-offset-2">
+                support@f3k.com
               </a>{" "}
               with your order number (e.g., #F3K-0012).
             </p>
@@ -104,13 +104,13 @@ export default function ReturnsPage() {
         <div className="mt-12 p-6 rounded-2xl bg-neutral-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <h4 className="font-bold text-sm uppercase tracking-wider">Need help with an exchange?</h4>
-            <p className="text-xs text-neutral-400">Our concierge team replies in under 15 minutes.</p>
+            <p className="text-xs text-neutral-400">Our customer support team replies in under 15 minutes.</p>
           </div>
           <a
-            href="mailto:concierge@f3k.com"
+            href="mailto:support@f3k.com"
             className="px-4 py-2 bg-white text-black text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-neutral-200 transition"
           >
-            Contact Concierge →
+            Contact Customer Support →
           </a>
         </div>
       </main>

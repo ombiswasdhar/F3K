@@ -44,7 +44,7 @@ export default function Footer() {
                 <Link href="/auth" className="transition hover:text-white">Account</Link>
               </li>
               <li>
-                <Link href="/#contact" className="transition hover:text-white">Concierge</Link>
+                <Link href="/#contact" className="transition hover:text-white">Customer Support</Link>
               </li>
               <li>
                 <Link href="/shipping" className="transition hover:text-white">Shipping</Link>

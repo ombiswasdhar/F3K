@@ -687,14 +687,14 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                 </Link>
               </div>
 
-              {/* Concierge & Support Footer */}
+              {/* Customer Support Footer */}
               <div className="p-2 border-t border-neutral-100 flex items-center justify-between text-[9px] text-neutral-500 bg-neutral-50/60 rounded-b-xl">
                 <span className="flex items-center gap-1">
                   <HelpCircle size={10} className="text-neutral-400" />
-                  <span>24/7 Concierge:</span>
+                  <span>Customer Support:</span>
                 </span>
-                <a href="mailto:concierge@f3k.com" className="text-neutral-900 font-medium hover:underline">
-                  concierge@f3k.com
+                <a href="mailto:support@f3k.com" className="text-neutral-900 font-medium hover:underline">
+                  support@f3k.com
                 </a>
               </div>
             </div>

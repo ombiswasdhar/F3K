@@ -422,7 +422,7 @@ export default function DashboardContent() {
             <span>Client Care Desk</span>
             <div className="mt-1 text-neutral-600 font-sans font-medium text-xs">
               <Link href="/#contact" className="text-black hover:underline flex items-center gap-1">
-                <span>Atelier Concierge</span>
+                <span>Customer Support</span>
                 <ChevronRight size={12} />
               </Link>
             </div>

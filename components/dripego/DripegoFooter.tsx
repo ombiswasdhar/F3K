@@ -8,7 +8,7 @@ export default function DripegoFooter() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("concierge@f3k.com");
+    navigator.clipboard.writeText("support@f3k.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -34,7 +34,7 @@ export default function DripegoFooter() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
         <div className="md:col-span-7">
           <div className="font-mono text-xs uppercase tracking-widest opacity-60 mb-2">
-            DIRECT TRANSMISSION // CONCIERGE
+            DIRECT TRANSMISSION // CUSTOMER SUPPORT
           </div>
           <h2 className="font-reality text-4xl sm:text-6xl md:text-7xl leading-none mb-6">
             Own the room.
@@ -45,14 +45,14 @@ export default function DripegoFooter() {
           <div className="flex items-center gap-3 flex-wrap font-mono text-xs">
             <button
               onClick={handleCopyEmail}
-              data-cursor="COPY CONCIERGE"
+              data-cursor="COPY CUSTOMER SUPPORT"
               className="border px-4 py-2 uppercase font-medium transition-all hover:bg-[var(--accent-color)] hover:text-[var(--bg-color)] active:scale-95"
               style={{ borderColor: "var(--border-color)" }}
             >
-              {copied ? "COPIED TO CLIPBOARD! ✓" : "COPY: concierge@f3k.com [⎘]"}
+              {copied ? "COPIED TO CLIPBOARD! ✓" : "COPY: support@f3k.com [⎘]"}
             </button>
             <a
-              href="mailto:concierge@f3k.com"
+              href="mailto:support@f3k.com"
               data-cursor="OPEN MAIL"
               className="border px-4 py-2 uppercase opacity-80 hover:opacity-100 transition-opacity"
               style={{ borderColor: "var(--border-light)" }}

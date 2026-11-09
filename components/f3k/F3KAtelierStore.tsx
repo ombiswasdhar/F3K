@@ -46,7 +46,7 @@ export default function F3KAtelierStore() {
             <div className="lg:col-span-5 space-y-6">
               <div>
                 <span className="inline-block text-[11px] font-semibold uppercase tracking-widest text-neutral-500 bg-neutral-200/60 px-3 py-1 rounded-full mb-3">
-                  Customer Support &amp; Concierge
+                  Customer Support
                 </span>
                 <h2 className="font-sans font-bold text-2xl sm:text-5xl uppercase tracking-tight text-neutral-900">
                   Contact Us
@@ -81,7 +81,7 @@ export default function F3KAtelierStore() {
                   <div>
                     <p className="font-semibold text-neutral-900">Support Hours</p>
                     <p className="text-neutral-600">Monday – Saturday: 9:00 AM – 7:00 PM IST</p>
-                    <p className="text-[11px] text-neutral-400 mt-0.5">Direct concierge &amp; email responses</p>
+                    <p className="text-[11px] text-neutral-400 mt-0.5">Direct customer support &amp; email responses</p>
                   </div>
                 </div>
 
@@ -130,7 +130,7 @@ export default function F3KAtelierStore() {
                       Message Received
                     </h3>
                     <p className="text-xs sm:text-sm text-neutral-600 max-w-md mx-auto leading-relaxed">
-                      Thank you for reaching out, <span className="font-semibold text-neutral-900">{name}</span>. {orderId ? `We noted order #${orderId}. ` : ""}Our concierge has logged your inquiry and will reply to <span className="font-semibold text-neutral-900">{email}</span> within 24 hours.
+                      Thank you for reaching out, <span className="font-semibold text-neutral-900">{name}</span>. {orderId ? `We noted order #${orderId}. ` : ""}Our customer support team has logged your inquiry and will reply to <span className="font-semibold text-neutral-900">{email}</span> within 24 hours.
                     </p>
                     <button
                       type="button"

@@ -56,9 +56,9 @@ export default function PrivacyPage() {
                 4. Client Inquiries
               </h2>
               <p className="mt-2">
-                For any questions regarding personal data or account erasure, contact concierge at{" "}
-                <a href="mailto:hello@f3k.com" className="text-white underline underline-offset-2">
-                  hello@f3k.com
+                For any questions regarding personal data or account erasure, contact customer support at{" "}
+                <a href="mailto:support@f3k.com" className="text-white underline underline-offset-2">
+                  support@f3k.com
                 </a>.
               </p>
             </section>
