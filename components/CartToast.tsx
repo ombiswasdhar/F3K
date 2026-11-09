@@ -55,6 +55,41 @@ export default function CartToast() {
 
   return (
     <AnimatePresence>
+      {/* Desktop: Small sleek note */}
+      <motion.div
+        key="cart-toast-desktop"
+        initial={{ opacity: 0, y: -16, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: -16, scale: 0.96 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        onMouseEnter={handlePauseTimer}
+        onMouseLeave={handleResumeTimer}
+        className="hidden md:flex fixed top-24 right-6 z-[80] items-center gap-3 rounded-full border border-white/15 bg-[#0c0c0c]/95 px-4 py-2 text-[#ede9e3] shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-xl font-sans"
+      >
+        <span className="text-[11px] font-bold tracking-widest text-white uppercase">
+          Added to cart
+        </span>
+        <span className="h-3 w-px bg-white/20" />
+        <button
+          type="button"
+          onClick={() => {
+            setLastAddedItem(null);
+            setIsOpen(true);
+          }}
+          className="text-[10px] font-bold tracking-wider text-white/80 hover:text-white uppercase transition cursor-pointer"
+        >
+          View Bag
+        </button>
+        <button
+          type="button"
+          onClick={() => setLastAddedItem(null)}
+          className="p-1 -mr-1 text-white/40 hover:text-white transition cursor-pointer"
+          aria-label="Dismiss notification"
+        >
+          <X size={13} />
+        </button>
+      </motion.div>
+
       {/* Mobile Backdrop Overlay */}
       <motion.div
         key="cart-toast-backdrop"
@@ -65,24 +100,24 @@ export default function CartToast() {
         className="fixed inset-0 z-[79] bg-black/60 backdrop-blur-xs md:hidden"
       />
 
+      {/* Mobile Action Sheet Drawer */}
       <motion.div
-        key="cart-toast-content"
+        key="cart-toast-mobile-content"
         initial={{ opacity: 0, y: 30, scale: 0.98 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.98 }}
         transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
         onMouseEnter={handlePauseTimer}
         onMouseLeave={handleResumeTimer}
-        className="fixed inset-x-0 bottom-0 z-[80] w-full rounded-t-[28px] border-t border-white/[0.12] bg-[#0c0c0c]/98 p-5 pb-8 text-[#ede9e3] shadow-[0_-12px_50px_rgba(0,0,0,0.85)] backdrop-blur-xl font-sans md:inset-x-auto md:bottom-auto md:top-24 md:right-6 md:w-full md:max-w-sm md:rounded-[24px] md:border md:border-white/[0.08] md:p-5 md:pb-5 md:shadow-[0_12px_50px_rgba(0,0,0,0.8)]"
+        className="fixed inset-x-0 bottom-0 z-[80] w-full rounded-t-[28px] border-t border-white/[0.12] bg-[#0c0c0c]/98 p-5 pb-8 text-[#ede9e3] shadow-[0_-12px_50px_rgba(0,0,0,0.85)] backdrop-blur-xl font-sans md:hidden"
       >
         {/* Mobile Swipe / Drag Handle Indicator */}
-        <div className="mx-auto w-10 h-1 rounded-full bg-white/20 mb-3.5 md:hidden" />
+        <div className="mx-auto w-10 h-1 rounded-full bg-white/20 mb-3.5" />
 
-        {/* Header */}
+        {/* Header (Green dot removed) */}
         <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-3.5">
           <div className="flex items-center gap-2">
-            <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] font-bold tracking-widest text-white uppercase">Added to Bag</span>
+            <span className="text-[10px] font-bold tracking-widest text-white uppercase">Added to Cart</span>
           </div>
           <button
             onClick={() => setLastAddedItem(null)}
