@@ -10,92 +10,44 @@ type CarouselAnchorStyle = CSSProperties & {
   "--carousel-x": string; 
   "--carousel-y": string;
   "--carousel-scale": number;
+  "--carousel-desktop-x"?: string;
+  "--carousel-desktop-y"?: string;
+  "--carousel-desktop-scale"?: number;
 };
 
-const defaultCarouselLayout: CarouselLayout = { x: -3, y: -500, angle: -20, pitch: -15, scale: 400 };
-const carouselLayoutStorageKey = "f3k-carousel-layout-v3";
+const defaultDesktopCarouselLayout: CarouselLayout = { x: 0, y: -61, angle: -20, pitch: -15, scale: 153 };
+const defaultMobileCarouselLayout: CarouselLayout = { x: -3, y: -500, angle: -20, pitch: -15, scale: 400 };
 const gridHorizontalPaths = [1, 5, 10].map((row) => `M0 ${row * 72} H3840`).join(" ");
 const gridVerticalPaths = [2, 8, 14].map((column) => `M${column * 72} 0 V2160`).join(" ");
 
 export default function F3KHeroSection() {
-  const [carouselLayout, setCarouselLayout] = useState<CarouselLayout>(defaultCarouselLayout);
-  const [isPastHero, setIsPastHero] = useState(false);
-  const [splitPercent, setSplitPercent] = useState(100);
+  const [carouselLayout, setCarouselLayout] = useState<CarouselLayout>(defaultDesktopCarouselLayout);
   const [heroEmail, setHeroEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
-  // 1. Initial Scroll Reset to top & Carousel layout storage
+  // 1. Initial Scroll Reset to top & Responsive Carousel layout storage
   useEffect(() => {
     if (typeof window !== "undefined" && !window.location.hash) {
       window.scrollTo({ top: 0, behavior: "instant" });
     }
 
-    try {
-      const storedLayout = window.localStorage.getItem(carouselLayoutStorageKey);
-      if (!storedLayout) return;
+    const isMobile = window.innerWidth < 768;
+    const defaultLayout = isMobile ? defaultMobileCarouselLayout : defaultDesktopCarouselLayout;
+    const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
 
-      const parsed = { ...defaultCarouselLayout, ...JSON.parse(storedLayout) } as CarouselLayout;
-      if (Object.values(parsed).every((value) => typeof value === "number" && Number.isFinite(value))) {
-        setCarouselLayout(parsed);
+    try {
+      const storedLayout = window.localStorage.getItem(storageKey);
+      if (storedLayout) {
+        const parsed = { ...defaultLayout, ...JSON.parse(storedLayout) } as CarouselLayout;
+        if (Object.values(parsed).every((value) => typeof value === "number" && Number.isFinite(value))) {
+          setCarouselLayout(parsed);
+          return;
+        }
       }
     } catch {}
+
+    setCarouselLayout(defaultLayout);
   }, []);
-
-  // 2. Scroll Detection: Real-time background reactivity (Light on dark hero, Dark on light carousel) + Slide out on catalog
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          // A. Slide sidebars out as t-shirt lineup begins (covers the filter bar first before disappearing)
-          const catalogEl = document.getElementById("catalog") || document.getElementById("products");
-          if (catalogEl) {
-            const rect = catalogEl.getBoundingClientRect();
-            setIsPastHero(rect.top <= 60);
-          } else {
-            const heroEl = document.getElementById("hero");
-            if (heroEl) {
-              const rect = heroEl.getBoundingClientRect();
-              setIsPastHero(rect.bottom <= 140);
-            }
-          }
-
-          // B. Track boundary between Hero 1 (dark background) and Hero 2 (light carousel background)
-          const carouselEl = document.getElementById("hero-carousel");
-          if (carouselEl) {
-            const rect = carouselEl.getBoundingClientRect();
-            const h = window.innerHeight || 1;
-            const pct = Math.max(0, Math.min(100, (rect.top / h) * 100));
-            setSplitPercent(pct);
-          }
-
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
-  }, []);
-
-  // 3. Toggle Scrollbar on HTML document
-  useEffect(() => {
-    if (!isPastHero) {
-      document.documentElement.classList.add("hero-active-scrollbar-hidden");
-    } else {
-      document.documentElement.classList.remove("hero-active-scrollbar-hidden");
-    }
-    return () => {
-      document.documentElement.classList.remove("hero-active-scrollbar-hidden");
-    };
-  }, [isPastHero]);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,86 +61,24 @@ export default function F3KHeroSection() {
   const handleLayoutChange = (newLayout: CarouselLayout) => {
     setCarouselLayout(newLayout);
     try {
-      window.localStorage.setItem(carouselLayoutStorageKey, JSON.stringify(newLayout));
+      const isMobile = window.innerWidth < 768;
+      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
+      window.localStorage.setItem(storageKey, JSON.stringify(newLayout));
     } catch {}
   };
 
   const handleLayoutReset = () => {
-    setCarouselLayout(defaultCarouselLayout);
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const defaultLayout = isMobile ? defaultMobileCarouselLayout : defaultDesktopCarouselLayout;
+    setCarouselLayout(defaultLayout);
     try {
-      window.localStorage.setItem(carouselLayoutStorageKey, JSON.stringify(defaultCarouselLayout));
+      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
+      window.localStorage.setItem(storageKey, JSON.stringify(defaultLayout));
     } catch {}
   };
 
   return (
     <section id="hero" className="relative w-full overflow-x-clip bg-white text-[#111] selection:bg-black selection:text-white">
-      
-      {/* ─── REACTIVE FIXED SIDEBARS: PURE CONTRAST REACTIVE (LIGHT ON DARK, DARK ON LIGHT) ─── */}
-      <div 
-        aria-hidden="true" 
-        className="pointer-events-none fixed inset-y-0 inset-x-0 z-40 flex items-center justify-between"
-      >
-        {/* Left Screen Edge: Reactive Dual-Layer Split (Pure White on Dark, Pure Black on Light) */}
-        <div 
-          className={`h-full flex items-center transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isPastHero ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
-          }`}
-        >
-          <div className="relative h-full w-4 sm:w-6 md:w-8 lg:w-10">
-            {/* White layer for dark background (Hero Part 1) */}
-            <svg 
-              viewBox="0 0 50 800" 
-              preserveAspectRatio="none" 
-              className="absolute inset-0 h-full w-full fill-white drop-shadow-[0_0_12px_rgba(0,0,0,0.5)]"
-              style={{ clipPath: `inset(0 0 ${100 - splitPercent}% 0)` }}
-            >
-              {/* Original vertical span (y=320 to 480) with extrusion depth reduced by 30% (x=43 instead of 56) */}
-              <path d="M0,0 L14,0 L14,320 L43,365 L43,435 L14,480 L14,800 L0,800 Z" />
-            </svg>
-            {/* Dark layer for light background (Hero Part 2) */}
-            <svg 
-              viewBox="0 0 50 800" 
-              preserveAspectRatio="none" 
-              className="absolute inset-0 h-full w-full fill-[#101010]"
-              style={{ clipPath: `inset(${splitPercent}% 0 0 0)` }}
-            >
-              {/* Original vertical span with 30% reduced extrusion */}
-              <path d="M0,0 L14,0 L14,320 L43,365 L43,435 L14,480 L14,800 L0,800 Z" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Right Screen Edge: Mirrored Reactive Dual-Layer Split */}
-        <div 
-          className={`h-full flex items-center justify-end transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            isPastHero ? "translate-x-full opacity-0" : "translate-x-0 opacity-100"
-          }`}
-        >
-          <div className="relative h-full w-4 sm:w-6 md:w-8 lg:w-10">
-            {/* White layer for dark background */}
-            <svg 
-              viewBox="0 0 50 800" 
-              preserveAspectRatio="none" 
-              className="absolute inset-0 h-full w-full fill-white scale-x-[-1] drop-shadow-[0_0_12px_rgba(0,0,0,0.5)]"
-              style={{ clipPath: `inset(0 0 ${100 - splitPercent}% 0)` }}
-            >
-              {/* Mirrored original vertical span with 30% reduced extrusion */}
-              <path d="M0,0 L14,0 L14,320 L43,365 L43,435 L14,480 L14,800 L0,800 Z" />
-            </svg>
-            {/* Dark layer for light background */}
-            <svg 
-              viewBox="0 0 50 800" 
-              preserveAspectRatio="none" 
-              className="absolute inset-0 h-full w-full fill-[#101010] scale-x-[-1]"
-              style={{ clipPath: `inset(${splitPercent}% 0 0 0)` }}
-            >
-              {/* Mirrored original vertical span with 30% reduced extrusion */}
-              <path d="M0,0 L14,0 L14,320 L43,365 L43,435 L14,480 L14,800 L0,800 Z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-
       {/* ─── PART 1 OF HERO: CINEMATIC EDITORIAL VISUAL HERO (REFINED TEXTS) ─── */}
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-black select-none">
         {/* Background Image (Clean 2K High Definition) */}
@@ -328,13 +218,16 @@ export default function F3KHeroSection() {
                 "--carousel-x": `${carouselLayout.x}px`, 
                 "--carousel-y": `${carouselLayout.y}px`,
                 "--carousel-scale": carouselLayout.scale,
+                "--carousel-desktop-x": `${carouselLayout.x}px`,
+                "--carousel-desktop-y": `${carouselLayout.y}px`,
+                "--carousel-desktop-scale": carouselLayout.scale,
               } as CarouselAnchorStyle}
             >
               <div 
                 className="f3k-carousel-rotator relative overflow-visible" 
                 style={{ rotate: `${carouselLayout.angle}deg` }}
               >
-                <ThreeDPhotoCarousel pitch={carouselLayout.pitch} scale={carouselLayout.scale} />
+                <ThreeDPhotoCarousel pitch={carouselLayout.pitch} />
               </div>
             </div>
 
@@ -383,7 +276,7 @@ export default function F3KHeroSection() {
         layout={carouselLayout}
         onChange={handleLayoutChange}
         onReset={handleLayoutReset}
-        defaultLayout={defaultCarouselLayout}
+        defaultLayout={typeof window !== "undefined" && window.innerWidth < 768 ? defaultMobileCarouselLayout : defaultDesktopCarouselLayout}
       />
     </section>
   );

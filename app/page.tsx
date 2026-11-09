@@ -3,6 +3,7 @@
 import { Suspense } from "react";
 import F3KNavbar from "@/components/f3k/F3KNavbar";
 import F3KHeroSection from "@/components/f3k/F3KHeroSection";
+import F3KSidebars from "@/components/f3k/F3KSidebars";
 import F3KCatalogGrid from "@/components/f3k/F3KCatalogGrid";
 import F3KEditorialManifesto from "@/components/f3k/F3KEditorialManifesto";
 import F3KCollectionsBento from "@/components/f3k/F3KCollectionsBento";
@@ -37,6 +38,9 @@ export default function Home() {
         {/* 6. Drop 002 Priority Access: Genuine streetwear drop list and SMS notification */}
         <F3KDropAccess />
       </main>
+
+      {/* Reactive Fixed Sidebars (Rendered at root after <main> so they visibly cover sticky bars) */}
+      <F3KSidebars />
 
       {/* 7. Atelier Footer: Full customer care, shipping & returns, sizing guide, currency switcher, and socials */}
       <F3KFooter />

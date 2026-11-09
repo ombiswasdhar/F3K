@@ -231,7 +231,7 @@ export default function F3KCatalogGrid() {
       </div>
 
       {/* 2. Filter Bar with Darker Borders - 1 row & swipable on mobile, 4-col on desktop */}
-      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-y border-neutral-300">
+      <div id="catalog-filter-bar" className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-y border-neutral-300">
         <div className="mx-auto max-w-[1500px]">
           <div className="flex overflow-x-auto no-scrollbar md:grid md:grid-cols-4 divide-x divide-neutral-300 border-x border-neutral-300 text-xs font-sans">
             {/* Category Filter */}

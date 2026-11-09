@@ -96,6 +96,7 @@
 
 .f3k-carousel-rotator {
   transform-origin: center;
+  scale: calc(var(--carousel-scale, 153) * 0.008);
 }
 
 .f3k-grid-backdrop {
@@ -154,12 +155,12 @@
 
 @media (min-width: 768px) {
   .f3k-carousel-layout-anchor {
-    left: calc(50% + var(--carousel-x, 0px));
-    top: calc(50% + var(--carousel-y, 0px));
+    left: calc(50% + var(--carousel-desktop-x, var(--carousel-x, 0px)));
+    top: calc(50% + var(--carousel-desktop-y, var(--carousel-y, 0px)));
   }
 
   .f3k-carousel-rotator {
-    transform-origin: center;
+    scale: calc(var(--carousel-desktop-scale, var(--carousel-scale, 153)) * 0.01);
   }
 }
 
