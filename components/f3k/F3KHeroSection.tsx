@@ -16,7 +16,7 @@ type CarouselAnchorStyle = CSSProperties & {
 };
 
 const defaultDesktopCarouselLayout: CarouselLayout = { x: 0, y: -61, angle: -20, pitch: -15, scale: 153 };
-const defaultMobileCarouselLayout: CarouselLayout = { x: -3, y: -500, angle: -20, pitch: -15, scale: 400 };
+const defaultMobileCarouselLayout: CarouselLayout = { x: -22, y: 27, angle: -20, pitch: -14, scale: 282 };
 const gridHorizontalPaths = [1, 5, 10].map((row) => `M0 ${row * 72} H3840`).join(" ");
 const gridVerticalPaths = [2, 8, 14].map((column) => `M${column * 72} 0 V2160`).join(" ");
 
@@ -33,7 +33,7 @@ export default function F3KHeroSection() {
 
     const isMobile = window.innerWidth < 768;
     const defaultLayout = isMobile ? defaultMobileCarouselLayout : defaultDesktopCarouselLayout;
-    const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
+    const storageKey = isMobile ? "f3k-carousel-layout-mobile-v5" : "f3k-carousel-layout-desktop-v4";
 
     try {
       const storedLayout = window.localStorage.getItem(storageKey);
@@ -62,7 +62,7 @@ export default function F3KHeroSection() {
     setCarouselLayout(newLayout);
     try {
       const isMobile = window.innerWidth < 768;
-      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
+      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v5" : "f3k-carousel-layout-desktop-v4";
       window.localStorage.setItem(storageKey, JSON.stringify(newLayout));
     } catch {}
   };
@@ -72,7 +72,7 @@ export default function F3KHeroSection() {
     const defaultLayout = isMobile ? defaultMobileCarouselLayout : defaultDesktopCarouselLayout;
     setCarouselLayout(defaultLayout);
     try {
-      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v4" : "f3k-carousel-layout-desktop-v4";
+      const storageKey = isMobile ? "f3k-carousel-layout-mobile-v5" : "f3k-carousel-layout-desktop-v4";
       window.localStorage.setItem(storageKey, JSON.stringify(defaultLayout));
     } catch {}
   };
