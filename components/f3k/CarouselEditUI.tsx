@@ -68,7 +68,7 @@ export default function CarouselEditUI({
   return (
     <aside
       aria-label="3D Carousel Layout Editor"
-      className="hidden md:block fixed bottom-5 right-5 z-[9999] font-sans select-none"
+      className="fixed bottom-24 right-4 md:bottom-5 md:right-5 z-[9999] font-sans select-none"
     >
       {/* Minimized Pill */}
       {!isOpen && (
@@ -84,7 +84,7 @@ export default function CarouselEditUI({
 
       {/* Main Edit Panel */}
       {isOpen && (
-        <div className="w-[340px] sm:w-[380px] rounded-2xl bg-[#0d0d0d]/95 text-white border border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-[calc(100vw-32px)] max-w-[340px] sm:w-[380px] max-h-[80vh] overflow-y-auto no-scrollbar rounded-2xl bg-[#0d0d0d]/95 text-white border border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-xl animate-in fade-in zoom-in-95 duration-200">
 
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">

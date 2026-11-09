@@ -232,7 +232,7 @@ export default function F3KHeroSection() {
             </div>
 
             {/* Stage Text (order-2 on mobile placed below the carousel, order-1 on desktop) */}
-            <div className="relative z-10 w-full max-w-none md:max-w-[240px] pt-1 pb-2 sm:py-0 select-none order-2 md:order-1">
+            <div className="relative z-10 w-full max-w-none md:max-w-[240px] pt-1 pb-2 sm:py-0 select-none order-2 md:order-1 translate-y-[72px] md:translate-y-0">
               <p className="mt-2 sm:mt-5 text-[11px] sm:text-[11px] lg:text-[12px] leading-[1.4] sm:leading-[1.5] lg:leading-[1.6] tracking-wider lg:tracking-widest font-archivo uppercase text-neutral-900 font-semibold">
                 <span className="sm:hidden">Streetwear &bull; Tees &bull; Hoodies &bull; Accessories</span>
                 <span className="hidden sm:inline">Streetwear<br />Tees<br />Hoodies<br />Accessories</span>
