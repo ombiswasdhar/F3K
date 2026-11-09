@@ -448,7 +448,7 @@ export default function F3KCatalogGrid() {
                   Drop 002 Archive In Development
                 </h4>
                 <p className="text-[10px] text-neutral-500 line-clamp-3">
-                  Heavyweight structured tailoring. 500 GSM loopback fleece & engineered modular seams.
+                  500 GSM loopback fleece hoodies and modular panel sweatpants in sampling.
                 </p>
               </div>
               <div className="pt-4">

@@ -36,7 +36,7 @@ export default function F3KFooter() {
               />
             </div>
             <p className="text-xs text-neutral-400 leading-relaxed">
-              Everyday heavyweight streetwear essentials. Color through construction, not ink.
+              Heavyweight streetwear essentials constructed with multi-panel combed cotton.
             </p>
             <p className="text-xs text-neutral-500">
               Exclusively Online • Worldwide Shipping

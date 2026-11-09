@@ -37,9 +37,9 @@ export default function DripegoFooter() {
             DIRECT TRANSMISSION // CUSTOMER SUPPORT
           </div>
           <h2 className="font-reality text-4xl sm:text-6xl md:text-7xl leading-none mb-6">
-            Own the room.
+            Heavyweight essentials.
             <br />
-            Demand nothing less.
+            Built to last.
           </h2>
 
           <div className="flex items-center gap-3 flex-wrap font-mono text-xs">

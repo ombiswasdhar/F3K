@@ -99,35 +99,35 @@ export default function F3KHeroSection() {
           {/* Top Row: Brand Info (Left) & Atmospheric Details (Right) */}
           <div className="flex items-start justify-between gap-4 sm:gap-6 pointer-events-auto">
             {/* Left: Brand Narrative */}
-            <div className="max-w-[180px] sm:max-w-[280px]">
+            <div className="max-w-[200px] sm:max-w-[320px]">
               <p className="text-[9px] sm:text-[11px] leading-[1.45] text-white/80 uppercase tracking-wider font-sans">
-                A contemporary atelier exploring form, heavyweight textile physics, and considered silhouette.
+                Heavyweight cut-and-sew streetwear. 280 to 500 GSM combed cotton constructed with reinforced panel seams.
               </p>
             </div>
 
             {/* Right: Technical Specs / Pillars */}
             <div className="text-right space-y-0.5 sm:space-y-1 text-[8.5px] sm:text-[11px] tracking-wider sm:tracking-widest text-white/60 uppercase font-sans shrink-0">
-              <p className="text-white font-semibold">CLOTHING —</p>
-              <p>500 GSM LOOPBACK</p>
-              <p>BESPOKE ARCHITECTURE</p>
-              <p className="text-white/40">THE FUTURE &bull; DROP 001</p>
+              <p className="text-white font-semibold">DROP 001</p>
+              <p>500 GSM LOOPBACK COTTON</p>
+              <p>CUT-AND-SEW PANELS</p>
+              <p className="text-white/40">MUMBAI &bull; NAGPUR</p>
             </div>
           </div>
 
-          {/* Center: "COMING SOON" & "A STUDY IN CONTRASTS" Display */}
+          {/* Center: "COMING SOON" Display */}
           <div className="text-center my-auto py-3 sm:py-8">
-            <p className="text-[9px] sm:text-xs tracking-[0.28em] sm:tracking-[0.45em] text-white/60 uppercase mb-2 sm:mb-4 font-sans">
-              A STUDY IN CONTRASTS
+            <p className="text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] text-white/60 uppercase mb-2 sm:mb-4 font-sans">
+              DROP 001 COLLECTION
             </p>
             <h1 className="font-archivo font-extrabold text-4xl sm:text-7xl md:text-8xl lg:text-9xl tracking-[0.14em] sm:tracking-[0.22em] text-white uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] select-none">
               COMING SOON
             </h1>
             <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[8px] sm:text-[11px] text-white/50 tracking-[0.18em] sm:tracking-[0.28em] uppercase font-sans">
-              <span>EXPLORING FORM</span>
+              <span>HEAVYWEIGHT PIECEWORK</span>
               <span>&bull;</span>
-              <span>FUNCTION</span>
+              <span>100% COMBED COTTON</span>
               <span>&bull;</span>
-              <span>WHAT COMES NEXT</span>
+              <span>ZERO SURFACE PRINT</span>
             </div>
           </div>
 
@@ -202,7 +202,7 @@ export default function F3KHeroSection() {
           {/* Top Bar: Starts in 2nd grid on left, ends in 2nd grid on right */}
           <div className="flex items-center justify-between gap-4 pt-14 sm:pt-6 text-[9px] sm:text-[10px] lg:text-[11px] font-sans tracking-wider font-medium">
             <span className="flex items-center gap-2"><span className="size-1.5 rounded-full bg-black" /> AVAILABLE NOW</span>
-            <span className="hidden sm:block text-neutral-500 tracking-[0.2em]">FUTURE3000 — DROP 001</span>
+            <span className="hidden sm:block text-neutral-500 tracking-[0.2em]">FUTURE 3000 / DROP 001</span>
             <Link href="/products" className="inline-flex items-center gap-1 underline underline-offset-4 hover:text-black transition">
               <span>Shop the drop</span> 
               <ArrowRight size={12} />
@@ -232,13 +232,13 @@ export default function F3KHeroSection() {
             </div>
 
             {/* Stage Text (order-2 on mobile placed below the carousel, order-1 on desktop) */}
-            <div className="relative z-10 w-full max-w-none md:max-w-[240px] pt-1 pb-2 sm:py-0 select-none order-2 md:order-1 translate-y-[72px] md:translate-y-0">
+            <div className="relative z-10 w-full max-w-none md:max-w-[340px] pt-1 pb-2 sm:py-0 select-none order-2 md:order-1 translate-y-[72px] md:translate-y-0">
               <p className="mt-2 sm:mt-5 text-[11px] sm:text-[11px] lg:text-[12px] leading-[1.4] sm:leading-[1.5] lg:leading-[1.6] tracking-wider lg:tracking-widest font-archivo uppercase text-neutral-900 font-semibold">
-                <span className="sm:hidden">Streetwear &bull; Tees &bull; Hoodies &bull; Accessories</span>
-                <span className="hidden sm:inline">Streetwear<br />Tees<br />Hoodies<br />Accessories</span>
+                <span className="sm:hidden">Heavyweight Tees &bull; Boxy Fits &bull; 280–500 GSM</span>
+                <span className="hidden sm:inline">Heavyweight Tees<br />Boxy Fits<br />280–500 GSM</span>
               </p>
-              <p className="mt-1.5 sm:mt-8 text-[10px] sm:text-[11px] lg:text-xs leading-relaxed text-neutral-600 w-full max-w-none md:max-w-[215px] font-sans">
-                Built for presence. Heavyweight essentials and considered silhouettes for the everyday.
+              <p className="mt-1.5 sm:mt-8 text-[10px] sm:text-[11px] lg:text-xs leading-relaxed text-neutral-600 w-full font-sans">
+                Cut from 280 to 500 GSM combed cotton. Assembled with multi-panel seam lines for a clean, structural drape.
               </p>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function F3KHeroSection() {
 
         {/* Footer: Starts in 2nd grid on left, ends in 2nd grid on right */}
         <footer className="relative z-10 w-full px-5 sm:px-8 md:px-[72px] pb-24 sm:pb-24 lg:pb-24 pt-4 sm:pt-8 flex items-end justify-between gap-6 text-[9.5px] sm:text-[11px] lg:text-[12px] font-sans leading-[1.35] lg:leading-[1.45]">
-          <p>F3K Atelier<br />Clothes built for the room.</p>
+          <p>F3K Atelier<br />Heavyweight cut-and-sew construction.</p>
           <p className="text-right">© FUTURE3000<br />All rights reserved.</p>
         </footer>
       </div>

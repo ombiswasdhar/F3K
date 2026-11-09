@@ -9,15 +9,15 @@ import CartDrawer from "@/components/CartDrawer";
 import CartToast from "@/components/CartToast";
 
 export const metadata: Metadata = {
-  title: "F3K — FUTURE3000 • Luxury Streetwear Atelier",
+  title: "F3K • FUTURE 3000 • Heavyweight Streetwear Atelier",
   description:
-    "Architectural luxury streetwear engineered from 500 GSM loopback cotton and bespoke patterns. Cut for those who walk in first, speak last, and leave remembered.",
+    "Heavyweight streetwear constructed with multi-panel cut-and-sew cotton. Built with 280 to 500 GSM combed fabrics in India.",
   metadataBase: new URL("https://future3000.com"),
   openGraph: {
-    title: "F3K — FUTURE3000 • Presence, By Design",
+    title: "F3K • FUTURE 3000 • Heavyweight Cut-and-Sew",
     description:
-      "Architectural luxury streetwear engineered from 500 GSM loopback cotton and bespoke patterns. Cut for those who walk in first, speak last, and leave remembered.",
-    siteName: "FUTURE3000 • F3K",
+      "Heavyweight streetwear constructed with multi-panel cut-and-sew cotton. Built with 280 to 500 GSM combed fabrics in India.",
+    siteName: "FUTURE 3000 • F3K",
     images: [
       {
         url: "/models/hero_model.png",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "F3K — Presence, By Design",
+    title: "F3K • FUTURE 3000 • Heavyweight Cut-and-Sew",
     description:
-      "Luxury streetwear engineered at the intersection of textile physics and architectural silhouette.",
+      "Heavyweight streetwear built from dense combed cotton and stitched multi-panel patterns.",
     images: ["/models/hero_model.png"],
   },
   icons: {

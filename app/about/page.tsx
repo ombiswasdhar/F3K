@@ -7,9 +7,9 @@ import F3KSidebars from "@/components/f3k/F3KSidebars";
 import F3KFooter from "@/components/f3k/F3KFooter";
 
 export const metadata: Metadata = {
-  title: "About the Atelier — Piecework Over Print | FUTURE3000",
+  title: "About F3K • Cut-and-Sew Cotton Construction | FUTURE 3000",
   description:
-    "Discover the FUTURE3000 philosophy: luxury heavyweight t-shirts crafted by stitching multicolored cotton panels together instead of surface printing.",
+    "F3K builds heavyweight streetwear by cutting and stitching fiber-dyed cotton panels instead of applying surface plastisol print.",
 };
 
 // Spliced T-Shirts Gallery Data (Authentic F3K Atelier Garment Development)
@@ -127,11 +127,11 @@ export default function AboutPage() {
             {/* Left and Right Side Micro-Manifesto Callouts */}
             <div className="w-full flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 mt-6 text-center sm:text-left text-xs font-sans text-neutral-500 px-2">
               <div className="max-w-[280px] leading-relaxed">
-                Engineered piecework exploring form, heavyweight textile physics, and architectural silhouette.
+                Multi-panel cut-and-sew construction from dense 280 to 290 GSM combed cotton.
               </div>
               <div className="max-w-[280px] text-center sm:text-right leading-relaxed">
-                <div className="font-medium text-neutral-800">Multi-panel cut-and-sew construction</div>
-                <div>Drop 001 Collection • 5 Silhouettes</div>
+                <div className="font-medium text-neutral-800">Five distinct panel-cut silhouettes</div>
+                <div>Drop 001 Collection &bull; Limited Run</div>
               </div>
             </div>
           </section>
@@ -160,11 +160,11 @@ export default function AboutPage() {
           {/* ─── 4. BIG STATEMENT HEADLINE (F3K Brand Ethos) ─── */}
           <section className="py-12 sm:py-20 text-center max-w-4xl mx-auto">
             <h2 className="font-archivo font-extrabold uppercase text-neutral-950 tracking-[-0.02em] leading-[0.95] text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
-              PRESENCE OVER
-              <span className="block mt-1 sm:mt-2 text-neutral-950">APPROVAL</span>
+              CUT-AND-SEW PANELS.
+              <span className="block mt-1 sm:mt-2 text-neutral-950">NO SURFACE PRINT.</span>
             </h2>
             <p className="mt-4 sm:mt-6 text-xs sm:text-sm text-neutral-500 font-sans max-w-xl mx-auto leading-relaxed">
-              Progress-oriented streetwear engineered in India. Heavyweight combed cottons sculpted through structural panel seams.
+              Heavyweight streetwear designed and stitched in India from dense combed cotton.
             </p>
           </section>
 
@@ -179,9 +179,9 @@ export default function AboutPage() {
                     THE ATELIER PHILOSOPHY
                   </span>
                   <h3 className="font-archivo font-bold uppercase tracking-[-0.01em] text-3xl sm:text-4xl text-neutral-900 leading-tight">
-                    STRUCTURAL SEAMS<br />
-                    OVER SURFACE<br />
-                    PRINTING
+                    PANEL CUTS<br />
+                    INSTEAD OF<br />
+                    SURFACE INK
                   </h3>
                 </div>
 
@@ -214,24 +214,24 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="text-center font-sans text-xs text-neutral-500 leading-relaxed">
-                  <div>Multi-panel contour geometry.</div>
-                  <div>Engineered for permanent drape.</div>
+                  <div>Reinforced flat-felled panel seams.</div>
+                  <div>Structured boxy drape that holds its shape.</div>
                 </div>
               </div>
 
               {/* Column 3: Authentic F3K Narrative in DM Sans */}
               <div className="lg:col-span-4 space-y-5 text-xs sm:text-sm font-sans leading-relaxed text-neutral-600">
                 <div className="font-sans text-xs font-semibold tracking-[0.14em] text-neutral-400 uppercase space-y-1">
-                  <div>PIECEWORK CONSTRUCTION</div>
+                  <div>MULTI-PANEL ASSEMBLY</div>
                   <div>ZERO SURFACE PLASTISOL</div>
                 </div>
 
                 <p className="text-neutral-600 font-sans leading-relaxed pt-2">
-                  F3K (Future 3000) is built on architectural restraint and progressive tailoring. Where standard streetwear relies on ink printed across a blank canvas, our garments achieve form through complex multi-panel piecework. We stitch high-density, fiber-dyed cotton cuts together to create permanent geometric silhouettes.
+                  Standard graphic tees print ink across a generic blank shirt. We build garments differently: each piece is cut from multiple separate panels of dense, fiber-dyed combed cotton, then stitched together so the color blocking and lines are part of the construction.
                 </p>
 
                 <p className="text-neutral-600 font-sans leading-relaxed">
-                  There are no surface plastisol inks to crack, peel, or stiffen over time. Every seam is structurally reinforced, ensuring the garment breathes naturally, falls with considered weight, and retains its shape wash after wash.
+                  Without rubbery plastisol ink across the chest, the fabric stays soft, breathes naturally, and won&apos;t crack or peel in the wash. Reinforced seams keep the boxy fit intact wash after wash.
                 </p>
 
                 <div className="pt-3">
@@ -252,14 +252,14 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-baseline justify-between gap-4 mb-10 sm:mb-14">
               <div>
                 <span className="font-sans text-xs font-semibold tracking-[0.14em] text-neutral-400 uppercase block mb-1">
-                  ANATOMY OF DROP 001
+                  DROP 001 SILHOUETTES
                 </span>
                 <h3 className="font-archivo font-bold uppercase tracking-[-0.01em] text-3xl sm:text-5xl text-neutral-900">
-                  PIECEWORK STUDIES
+                  FIVE PANEL-CUT TEES
                 </h3>
               </div>
               <p className="font-sans text-xs text-neutral-500 uppercase tracking-wider max-w-sm sm:text-right">
-                5 heavyweight silhouettes engineered without printed inks
+                Cut from 270 to 290 GSM combed and loopback cotton
               </p>
             </div>
 
@@ -318,7 +318,7 @@ export default function AboutPage() {
                   ATELIER STANDARDS
                 </span>
                 <h3 className="font-archivo font-bold uppercase text-2xl sm:text-4xl text-neutral-900 tracking-[-0.01em]">
-                  SURFACE PRINT VS. SPLICED CONSTRUCTION
+                  CONVENTIONAL PRINT VS. SPLICED CONSTRUCTION
                 </h3>
               </div>
 
@@ -327,39 +327,39 @@ export default function AboutPage() {
                 <div className="grid grid-cols-3 bg-neutral-950 text-white font-sans text-[11px] sm:text-xs tracking-wider uppercase font-bold p-3 sm:p-4">
                   <div>SPECIFICATION</div>
                   <div className="text-neutral-400">CONVENTIONAL PRINT</div>
-                  <div className="text-emerald-400">F3K PIECEWORK</div>
+                  <div className="text-emerald-400">F3K CUT-AND-SEW</div>
                 </div>
 
                 <div className="divide-y divide-neutral-200">
                   <div className="grid grid-cols-3 p-3.5 sm:p-4 items-center">
-                    <span className="font-bold text-neutral-900">Graphic Durability</span>
-                    <span className="text-neutral-500">Cracks, peels & flakes after 5–10 washes</span>
+                    <span className="font-bold text-neutral-900">Wash Durability</span>
+                    <span className="text-neutral-500">Cracks and peels after repeated washing</span>
                     <span className="font-semibold text-neutral-950 flex items-center gap-1.5">
-                      <Check size={14} className="text-emerald-600 shrink-0" /> Permanent structural seams
+                      <Check size={14} className="text-emerald-600 shrink-0" /> Permanent stitched seams
                     </span>
                   </div>
 
                   <div className="grid grid-cols-3 p-3.5 sm:p-4 items-center">
-                    <span className="font-bold text-neutral-900">Skin Breathability</span>
-                    <span className="text-neutral-500">Plastisol seals pores, traps perspiration</span>
+                    <span className="font-bold text-neutral-900">Breathability</span>
+                    <span className="text-neutral-500">Ink layer seals pores and traps heat</span>
                     <span className="font-semibold text-neutral-950 flex items-center gap-1.5">
                       <Check size={14} className="text-emerald-600 shrink-0" /> 100% breathable combed jersey
                     </span>
                   </div>
 
                   <div className="grid grid-cols-3 p-3.5 sm:p-4 items-center">
-                    <span className="font-bold text-neutral-900">Color Depth</span>
-                    <span className="text-neutral-500">Surface ink fades & degrades under UV</span>
+                    <span className="font-bold text-neutral-900">Color Retention</span>
+                    <span className="text-neutral-500">Surface ink fades and degrades</span>
                     <span className="font-semibold text-neutral-950 flex items-center gap-1.5">
                       <Check size={14} className="text-emerald-600 shrink-0" /> Fiber-dyed cotton cuts hold tone
                     </span>
                   </div>
 
                   <div className="grid grid-cols-3 p-3.5 sm:p-4 items-center">
-                    <span className="font-bold text-neutral-900">Garment Drape</span>
-                    <span className="text-neutral-500">Stiff chest block distorts silhouette</span>
+                    <span className="font-bold text-neutral-900">Chest Drape</span>
+                    <span className="text-neutral-500">Stiff print block distorts the drape</span>
                     <span className="font-semibold text-neutral-950 flex items-center gap-1.5">
-                      <Check size={14} className="text-emerald-600 shrink-0" /> Architectural fluid drape
+                      <Check size={14} className="text-emerald-600 shrink-0" /> Natural, fluid chest drape
                     </span>
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export default function AboutPage() {
           {/* ─── 8. BOTTOM MONOGRAPH BASELINE ─── */}
           <footer className="pt-8 sm:pt-12 mt-8 border-t border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-4 font-sans text-xs text-neutral-500 uppercase tracking-wider">
             <div>FUTURE 3000 • DROP 001 ATELIER</div>
-            <div className="text-neutral-700 font-semibold font-archivo">PRESENCE OVER APPROVAL</div>
+            <div className="text-neutral-700 font-semibold font-archivo">CUT-AND-SEW COTTON CONSTRUCTION</div>
           </footer>
 
         </div>

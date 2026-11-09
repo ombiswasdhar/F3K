@@ -48,7 +48,7 @@ export default function F3KCollectionsBento() {
               Featured Silhouettes
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-neutral-500 font-sans">
-              Drop 001 • 5 Architectural Garments
+              Drop 001. Five cut-and-sew silhouettes.
             </p>
           </div>
           <Link
