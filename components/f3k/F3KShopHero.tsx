@@ -71,21 +71,21 @@ export default function F3KShopHero({ onCategoryChange }: F3KShopHeroProps) {
       <div className="relative z-10 mx-auto max-w-[1500px] min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] flex flex-col justify-between px-5 sm:px-8 lg:px-12 pt-28 sm:pt-32 pb-8 sm:pb-10">
         
         {/* Top Meta Row */}
-        <div className="flex items-start justify-between w-full">
-          {/* Top Left Bracketed Collection Tag */}
-          <div className="flex items-center">
+        <div className="flex items-start justify-start md:justify-between w-full">
+          {/* Top Left Bracketed Collection Tag (Desktop only) */}
+          <div className="hidden md:flex items-center">
             <span className="font-mono text-xs sm:text-sm tracking-[0.22em] text-neutral-300 uppercase">
               [ COLLECTION 001 ]
             </span>
           </div>
 
-          {/* Top Right Architectural Pillar Values */}
-          <div className="text-right font-mono text-[10px] sm:text-xs tracking-[0.25em] text-neutral-400 uppercase leading-relaxed select-none">
+          {/* Top Right Architectural Pillar Values (Left on mobile, Right on desktop) */}
+          <div className="text-left md:text-right font-mono text-[10px] sm:text-xs tracking-[0.25em] text-neutral-400 uppercase leading-relaxed select-none">
             <div>FORM</div>
             <div>STRUCTURE</div>
             <div>HUMAN</div>
             <div>FUTURE</div>
-            <div className="pt-0.5 text-neutral-500">—</div>
+            <div className="pt-0.5 text-neutral-500 hidden md:block">—</div>
           </div>
         </div>
 
@@ -106,9 +106,9 @@ export default function F3KShopHero({ onCategoryChange }: F3KShopHeroProps) {
         </div>
 
         {/* Bottom Sub-Nav & Technical Signature Row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 w-full pt-5 border-t border-white/15">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 md:gap-6 w-full pt-5 border-t border-white/15">
           {/* Bottom Left Category Tabs (Swipable on mobile) */}
-          <div className="flex items-center gap-5 sm:gap-8 overflow-x-auto no-scrollbar flex-nowrap w-full sm:w-auto py-1">
+          <div className="flex items-center gap-5 sm:gap-8 overflow-x-auto no-scrollbar flex-nowrap w-full md:w-auto py-1">
             {TABS.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -131,8 +131,8 @@ export default function F3KShopHero({ onCategoryChange }: F3KShopHeroProps) {
             })}
           </div>
 
-          {/* Bottom Right Studio Spec */}
-          <div className="text-left sm:text-right font-mono text-[10px] sm:text-xs tracking-[0.22em] text-neutral-400 uppercase leading-snug shrink-0 select-none">
+          {/* Bottom Right Studio Spec (Hidden on mobile) */}
+          <div className="hidden md:block text-left sm:text-right font-mono text-[10px] sm:text-xs tracking-[0.22em] text-neutral-400 uppercase leading-snug shrink-0 select-none">
             <div>F3K</div>
             <div>COLLECTION 001</div>
             <div>IN DEVELOPMENT</div>
