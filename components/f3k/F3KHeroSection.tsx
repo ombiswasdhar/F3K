@@ -166,8 +166,8 @@ export default function F3KHeroSection() {
               </div>
             </div>
 
-            {/* Bottom-Right: Geolocation (Left-aligned with email on mobile, right-aligned on desktop) */}
-            <div className="text-left md:text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
+            {/* Bottom-Right: Geolocation */}
+            <div className="w-full md:w-auto text-right space-y-0.5 sm:space-y-1 text-white/60 font-sans text-[8.5px] sm:text-[10px]">
               <p className="text-white/85 tracking-wider font-semibold">MUMBAI &bull; NAGPUR &bull; INDIA</p>
               <p className="text-[8px] sm:text-[9px] text-white/35">&copy; 2026 F3K. ALL RIGHTS RESERVED.</p>
             </div>
