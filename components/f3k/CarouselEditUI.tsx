@@ -76,7 +76,7 @@ export default function CarouselEditUI({
   return createPortal(
     <aside
       aria-label="3D Carousel Layout Editor"
-      className="fixed bottom-20 right-2 sm:right-4 md:bottom-5 md:right-5 z-[999999] font-sans select-none max-w-[calc(100vw-16px)]"
+      className="hidden md:block fixed bottom-20 right-2 sm:right-4 md:bottom-5 md:right-5 z-[999999] font-sans select-none max-w-[calc(100vw-16px)]"
     >
       {/* Minimized Pill */}
       {!isOpen && (
