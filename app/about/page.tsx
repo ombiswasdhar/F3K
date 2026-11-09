@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Scissors, Layers, ShieldCheck, Sparkles } from "lucide-react";
 import F3KNavbar from "@/components/f3k/F3KNavbar";
+import F3KSidebars from "@/components/f3k/F3KSidebars";
 import F3KFooter from "@/components/f3k/F3KFooter";
 
 export const metadata: Metadata = {
@@ -374,6 +375,9 @@ export default function AboutPage() {
 
         </div>
       </main>
+
+      {/* Fixed Architectural Sidebars for Desktop */}
+      <F3KSidebars color="black" desktopOnly permanent />
 
       {/* Atelier Footer */}
       <F3KFooter />
