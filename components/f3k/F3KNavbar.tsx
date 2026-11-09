@@ -720,9 +720,9 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
         />
       )}
 
-      {/* ─── MOBILE LIVE SEARCH SHEET (FLOATS DIRECTLY ABOVE BOTTOM NAV) ─── */}
+      {/* ─── MOBILE LIVE SEARCH SHEET (FLOATS AT TOP OF SCREEN) ─── */}
       {isSearchOpen && (
-        <div className="fixed inset-x-4 bottom-22 z-50 md:hidden bg-white text-neutral-900 rounded-2xl border border-neutral-200 p-3.5 shadow-[0_16px_50px_rgba(0,0,0,0.4)] font-sans max-w-sm mx-auto animate-in slide-in-from-bottom-3 duration-200 pointer-events-auto">
+        <div className="fixed inset-x-4 top-16 z-50 md:hidden bg-white text-neutral-900 rounded-2xl border border-neutral-200 p-3.5 shadow-[0_16px_50px_rgba(0,0,0,0.4)] font-sans max-w-sm mx-auto animate-in slide-in-from-top-3 duration-200 pointer-events-auto">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-100">
             <span className="text-[10px] tracking-wider uppercase text-neutral-500 font-semibold">Search Silhouettes</span>
             <button 
