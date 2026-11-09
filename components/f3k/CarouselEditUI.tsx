@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Sliders, RotateCcw, Copy, Check, ChevronDown, ChevronUp, Eye, Move } from "lucide-react";
 
 export type CarouselLayout = {
@@ -24,8 +25,13 @@ export default function CarouselEditUI({
   onReset,
   defaultLayout,
 }: CarouselEditUIProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const updateField = (field: keyof CarouselLayout, value: number) => {
     onChange({
@@ -65,26 +71,28 @@ export default function CarouselEditUI({
       { key: "scale", label: "SCALE", min: 20, max: 600, step: 1, unit: "%" },
     ];
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <aside
       aria-label="3D Carousel Layout Editor"
-      className="fixed bottom-24 right-4 md:bottom-5 md:right-5 z-[9999] font-sans select-none"
+      className="fixed bottom-20 right-2 sm:right-4 md:bottom-5 md:right-5 z-[999999] font-sans select-none max-w-[calc(100vw-16px)]"
     >
       {/* Minimized Pill */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-black/90 text-white border border-white/20 shadow-2xl backdrop-blur-md hover:bg-black hover:border-white/40 transition-all text-[11px] tracking-wider uppercase cursor-pointer group"
+          className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-black text-white border-2 border-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.5)] backdrop-blur-md hover:bg-neutral-900 transition-all text-[11px] tracking-wider uppercase cursor-pointer group active:scale-95"
         >
           <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-          <Sliders size={13} className="text-white/80 group-hover:text-white" />
-          <span className="font-semibold">Edit Rotating Carousel</span>
+          <Sliders size={13} className="text-emerald-400" />
+          <span className="font-bold text-white">Edit 3D Carousel</span>
         </button>
       )}
 
       {/* Main Edit Panel */}
       {isOpen && (
-        <div className="w-[calc(100vw-32px)] max-w-[340px] sm:w-[380px] max-h-[80vh] overflow-y-auto no-scrollbar rounded-2xl bg-[#0d0d0d]/95 text-white border border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-xl animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-[calc(100vw-16px)] max-w-[340px] sm:w-[380px] max-h-[75vh] overflow-y-auto no-scrollbar rounded-2xl bg-[#0d0d0d]/95 text-white border border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-xl animate-in fade-in zoom-in-95 duration-200">
 
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
@@ -123,7 +131,7 @@ export default function CarouselEditUI({
           </div>
 
           {/* Sliders Body */}
-          <div className="p-4 space-y-3.5 max-h-[60vh] overflow-y-auto">
+          <div className="p-4 space-y-3.5 max-h-[50vh] overflow-y-auto">
             {controls.map(({ key, label, min, max, step, unit }) => {
               const val = layout[key];
               return (
@@ -224,7 +232,8 @@ export default function CarouselEditUI({
 
         </div>
       )}
-    </aside>
+    </aside>,
+    document.body
   );
 }
 
