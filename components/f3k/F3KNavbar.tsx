@@ -103,6 +103,7 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
     if (isCartOpen) return "cart";
     if (isSearchOpen) return "search";
     if (isWishlistOpen) return "wishlist";
+    if (pathname === "/about") return "about";
     if (pathname.startsWith("/products") || pathname === "/men" || pathname === "/women") return "shop";
     if (pathname === "/") return "home";
     return "";
@@ -144,9 +145,16 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
     </svg>
   );
 
+  const SolidAboutIcon = ({ className = "size-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={`${className} fill-current`} aria-hidden="true">
+      <path d="M12 2.5L14.2 9.4L21.5 11.6C21.9 11.7 21.9 12.3 21.5 12.4L14.2 14.6L12 21.5C11.9 21.9 11.3 21.9 11.2 21.5L9 14.6L1.7 12.4C1.3 12.3 1.3 11.7 1.7 11.6L9 9.4L11.2 2.5C11.3 2.1 11.9 2.1 12 2.5Z" />
+    </svg>
+  );
+
   const mobileNavItems = [
     { id: "home", label: "Home", icon: SolidHomeIcon, href: "/" },
     { id: "shop", label: "Shop", icon: SolidShopIcon, href: "/products" },
+    { id: "about", label: "About", icon: SolidAboutIcon, href: "/about" },
     { 
       id: "search", 
       label: "Search", 
@@ -864,9 +872,9 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
       {/* ─── MOBILE BOTTOM FLOATING NAVIGATION BAR (INSPIRED BY REFERENCE) ─── */}
       <nav 
         aria-label="Mobile Navigation" 
-        className="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden pointer-events-none px-4 pb-[env(safe-area-inset-bottom,0px)]"
+        className="fixed bottom-4 inset-x-0 z-50 flex justify-center md:hidden pointer-events-none px-3 pb-[env(safe-area-inset-bottom,0px)]"
       >
-        <div className="pointer-events-auto w-full max-w-[350px] h-[58px] rounded-full bg-[#1c1c1c]/95 backdrop-blur-2xl border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.7)] p-1.5 flex items-center justify-between font-sans select-none">
+        <div className="pointer-events-auto w-full max-w-[365px] h-[58px] rounded-full bg-[#1c1c1c]/95 backdrop-blur-2xl border border-white/12 shadow-[0_16px_40px_rgba(0,0,0,0.7)] p-1.5 flex items-center justify-between font-sans select-none">
           {mobileNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeMobileTab === item.id;
@@ -876,15 +884,15 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
                 {isActive ? (
                   <motion.div
                     layoutId="mobile-nav-active-pill"
-                    className="h-full px-4 rounded-full bg-white text-black font-bold flex items-center gap-2 shadow-md shrink-0 select-none"
+                    className="h-full px-3.5 rounded-full bg-white text-black font-bold flex items-center gap-1.5 shadow-md shrink-0 select-none"
                     transition={{ type: "spring", stiffness: 450, damping: 32 }}
                   >
                     <Icon className="size-[17px] text-black shrink-0" />
                     <span className="text-[12px] font-bold font-sans tracking-tight">{item.label}</span>
                   </motion.div>
                 ) : (
-                  <div className="relative p-2.5 text-white/75 hover:text-white transition-colors flex items-center justify-center">
-                    <Icon className="size-5 transition-transform active:scale-95" />
+                  <div className="relative p-2 text-white/75 hover:text-white transition-colors flex items-center justify-center">
+                    <Icon className="size-[18px] transition-transform active:scale-95" />
                     {typeof item.badge === "number" && item.badge > 0 && (
                       <span className="absolute top-1 right-1 flex size-3.5 items-center justify-center rounded-full bg-white text-black text-[8px] font-bold font-sans ring-2 ring-[#1c1c1c]">
                         {item.badge}
