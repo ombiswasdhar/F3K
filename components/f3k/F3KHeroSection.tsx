@@ -96,10 +96,10 @@ export default function F3KHeroSection() {
         {/* ================= EDITORIAL OVERLAY CONTAINER ================= */}
         <div className="relative z-10 w-full h-full max-w-[1500px] mx-auto px-5 sm:px-10 lg:px-14 flex flex-col justify-between pt-20 sm:pt-24 pb-24 sm:pb-10 font-mono text-white pointer-events-none">
           
-          {/* Top Row: Brand Info (Left) & Atmospheric Details (Right) */}
-          <div className="flex items-start justify-between gap-4 sm:gap-6 pointer-events-auto">
-            {/* Left: Brand Narrative */}
-            <div className="max-w-[200px] sm:max-w-[320px]">
+          {/* Top Row: Brand Info (Left - desktop only) & Atmospheric Details (Right) */}
+          <div className="flex items-start justify-end sm:justify-between gap-4 sm:gap-6 pointer-events-auto">
+            {/* Left: Brand Narrative (Hidden on mobile) */}
+            <div className="hidden sm:block max-w-[200px] sm:max-w-[320px]">
               <p className="text-[9px] sm:text-[11px] leading-[1.45] text-white/80 uppercase tracking-wider font-sans">
                 Heavyweight cut-and-sew streetwear. 280 to 500 GSM combed cotton constructed with reinforced panel seams.
               </p>
