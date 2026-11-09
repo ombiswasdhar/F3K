@@ -95,7 +95,17 @@ export default function F3KNavbar({ className = "", theme = "light" }: F3KNavbar
   };
 
   const isDark = theme === "dark";
-  const isLightSurface = scrolled ? !isDark : pathname === "/about";
+  const isLightPage = 
+    pathname.startsWith("/checkout") || 
+    pathname === "/about" || 
+    pathname.startsWith("/dashboard") || 
+    pathname.startsWith("/returns") || 
+    pathname.startsWith("/shipping") || 
+    pathname.startsWith("/privacy") || 
+    pathname.startsWith("/terms") ||
+    (pathname.startsWith("/products/") && pathname !== "/products");
+
+  const isLightSurface = scrolled ? !isDark : (!isDark && isLightPage);
   const logoSrc = isLightSurface ? "/logo/f3k-mark-black.png" : "/logo/f3k-mark-white.png";
 
   // Active mobile tab logic (faithful to Dribbble reference capsule nav)
